@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>键盘事件</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//当任意键按下、按住的时候触发，一直按下可持续触发
+			//大部分系统按键不会被触发（特殊功能性按键），系统能触发的有 enter、空格键，F按键
+			
+			//区分大小写，键码值根据大小写不相同
+			document.onkeypress=function(ev){
+				var e=ev ||window.event;
+				
+				//e.keyCode返回按键的键码值
+				//e.which 火狐的获取方式
+//				console.log(e.which);
+				
+//				if(navigator.userAgent.indexOf("Firefox")){
+//					console.log(e.which);
+//				}else{
+//					console.log(e.keyCode);
+//				}
+			}
+			//会触发系统功能按键
+			//不区分大小写，键码值相同
+			document.onkeydown=function(ev){
+				var e=ev ||　window.event;
+				//按住可持续触发
+				if(e.keyCode==37){
+					console.log("左");
+				}
+//				console.log(e.keyCode);
+			}
+			document.onkeyup=function(ev){
+				console.log(ev.keyCode);
+			}
+		</script>
+	</body>
+</html>

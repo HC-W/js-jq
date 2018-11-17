@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>获取元素</title>
+	</head>
+	<body>
+		<div id="wrap">
+			<div class="box"></div>
+			<div class="box" name="hello"></div>
+			<div class="box"></div>
+		</div>
+		
+		
+		<script type="text/javascript">
+			
+			//通过id获取页面上的单个元素
+			var myWrap=document.getElementById("wrap");
+			
+			//通过class获取页面中多个元素，返回值类型为数组
+			var boxes= document.getElementsByClassName("box");
+			//boxes以数组的形式输出，需要输出哪个元素用数组的输出方式
+//			console.log(boxes[0]);
+			
+			//通过name属性获取页面中多个元素，返回值类型为数组
+			var hBox=document.getElementsByName("");
+			console.log(hBox);
+			
+			//通过标签名获取页面中多个元素，返回值类型为数组
+			//获取父级的单个id，然后在父级中获取所有的div标签，不然子级父级一同获取
+			var tBox=myWrap.getElementsByTagName("div");
+			
+			//通过选择器获取页面上单个标签:如果有多个，则只会获取第一个
+			//写法同样式中选择器写法一样：如：.div a       #div1 div a
+			var qBox=document.querySelector("#wrap");
+			
+			//通过选择器获取页面上多个标签，返回值类型为数组
+			var aBox=document.querySelectorAll("#wrap div");
+			console.log(aBox);
+			//注意：就算只获取到一个元素，也是数组类型
+			//修改样式
+			aBox[0].style.backgroundColor="red";
+			
+			
+			
+			
+			
+			
+			
+			
+			//遍历方法输出boxes中的所有元素
+			for (var i=0;i<boxes.length;i++) {
+				console.log(boxes[i]);
+				//修改数组中元素的内容
+				boxes[i].innerHTML="";
+			}
+		</script>
+		
+	</body>
+</html>

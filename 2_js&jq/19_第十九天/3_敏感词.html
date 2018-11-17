@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>敏感词</title>
+	</head>
+	<body>
+		<textarea class="scr" rows="5" cols="25"></textarea>
+		<br />
+		<input type="text" class="txt"/>
+		<input type="button" class="btn" value="发送" />
+		
+		<script src="../js/封装函数.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var t=q(".txt");
+			var b=q(".btn");
+			var s=q(".scr");
+			
+			//制定一个敏感词正则
+			var re=/sb|mmp|gay|不要脸/img;
+			b.onclick=function(){
+				var str=t.value;
+				var str2=str.replace(re,"***");
+				s.value+=str2 + "\n";
+				t.value="";
+			}
+		</script>
+	</body>
+</html>

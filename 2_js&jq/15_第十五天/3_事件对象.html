@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>事件对象</title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			//事件对象:系统通过事件传递过来的一个对象
+			//通过这个对象，可以调用该事件的一些属性，函数等
+			
+			
+			//在IE下不会传ev，在ie下使用window.event;
+			//ie事件对象：该事件内的window.event
+			document.onclick=function(ev){
+//				console.log(ev.type);
+				//兼容写法
+				var e=ev || window.event;
+				console.log(ev);
+				//ie写法
+				window.event;
+			}
+		</script>
+	</body>
+</html>

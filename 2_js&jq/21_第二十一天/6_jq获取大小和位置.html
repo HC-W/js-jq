@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jq获取大小和位置</title>
+		<style type="text/css">
+			.wrap{
+				position: relative;
+				margin: 100px;
+			}
+			.div1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				left: 200px;
+				top: 200px;
+				border: 1px solid green;
+				padding: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="div1"></div>
+		</div>
+		
+		<script src="../js/jq/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//获取位置
+				//(1) position,与定位基准相关，获取的是left值 ：  可运算数值  200  200
+				console.log($(".div1").position().left);
+				console.log($(".div1").position().top);
+				//(2) offset,距离页面窗口的距离，与定位基准无关
+				console.log($(".wrap").offset().left);
+				console.log($(".wrap").offset().top);
+				
+				//获取大小
+				//width()  height() :获取的样式的值，与border、padding无关
+				console.log($(".div1").width());
+				console.log($(".div1").height());
+				//innerWidth()  innerHeight()  :获取内容+padding大小 ===clientWidth  clientHeight
+				//不包括border
+				console.log($(".div1").innerWidth());
+				console.log($(".div1").innerHeight());
+				//outerWidth() outerHeight()：内容 + padding + border=== offsetWidth  offsetHeight
+				//包括border  padding  内容
+				//注意：参数为true时，同时获取margin(在margin存在的情况下)，默认为false
+				console.log($(".div1").outerWidth(true));
+				console.log($(".div1").outerHeight());
+				
+				
+			})
+			
+
+		</script>
+	</body>
+</html>

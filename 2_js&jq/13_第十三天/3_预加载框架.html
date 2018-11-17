@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>预加载框架</title>
+	</head>
+	<body>
+		<script src="../js/LoadImages.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			loadImage(
+				{
+					img1:"../imghua/1.jpg",
+					img2:"../imghua/2.jpg",
+					img3:"../imghua/3.jpg",
+					img4:"../imghua/4.jpg",
+					img5:"../imghua/5.jpg",
+					img6:"../imghua/6.jpg",
+					img7:"../imghua/7.jpg",
+					img8:"../imghua/8.jpg",
+					img9:"../imghua/9.jpg",
+					img10:"../imghua/10.jpg"
+				},
+				{
+					progress:loading,
+					complete:main
+				},
+			);
+			//未完成的回调函数
+			function loading(a){
+				document.write(a+"%");
+			}
+			//全部加载完成的回调函数
+			function main(imgs){
+				document.write("加载完成!");
+				console.log(imgs);
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>滚轮事件</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//鼠标滚轮事件:onmousewheel
+			
+/*			window.onmousewheel=function(ev){
+				var e=ev || window.event;
+				//默认为120的倍数
+				if(e.wheelDelta>0){
+					console.log("向上");
+				}else if(e.wheelDelta<0){
+					console.log("向下");
+				}
+				//获取滚动数值
+				
+//				console.log(e.wheelDelta);
+			}*/
+			
+			//兼容火狐的不同点
+			//1、必须用事件监听来添加事件
+			//2、事件名字是DOMMouseScroll
+			//3、获取滑动值得属性是 e.detail
+			//4、滑动值向上小于0，向下大于0     和谷歌下相反
+			window.addEventListener("DOMMouseScroll",function(ev){
+				if(ev.detail>0){
+					console.log("向下");
+				}else if(ev.detail<0){
+					console.log("向上");
+				}
+				//获取滑动值
+				console.log(ev.detail);
+			});
+		
+		
+			
+		</script>
+	</body>
+</html>

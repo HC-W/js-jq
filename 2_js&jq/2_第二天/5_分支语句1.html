@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>分支语句1</title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			//1、单分支语句
+			//注意：在if的条件表达式中，会自动转换成boolean类型
+//			if(条件表达式(常量,变量,都可以)){
+//				语句...
+//			}
+//			
+//			if(条件表达式){
+//				语句1...
+//			}else{
+//				语句2...
+//			}
+//			
+//			
+//			if(条件表达式1){
+//				语句1...
+//			}else if(条件表达式2){
+//				语句2...
+//			}else if(条件表达式3){
+//				语句3...
+//			}else if(条件表达式n){
+//				语句n...
+//			}else{
+//				
+//			}
+			
+			var a=3;
+			var b=3;
+			
+			//isNaN:当要检测的值不是一个数字时，返回true
+			if(isNaN(a)||isNaN(b)){
+				alert("有错！");
+			}else{
+				if(a>b){
+					alert("a最大！");
+				}else if(a<b){
+					alert("b最大！");
+				}else{
+					alert("一样大！");
+				}
+			}
+			
+		</script>
+	</body>
+</html>

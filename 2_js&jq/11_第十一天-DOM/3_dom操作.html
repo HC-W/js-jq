@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>dom操作</title>
+	</head>
+	<body>
+		<div id="div1">
+			<!--<p id="p1">123</p>-->
+		</div>
+		
+		<script type="text/javascript">
+			var myDiv=document.getElementById("div1");
+			var myP=document.getElementById("p1");
+			//增
+			var newDiv=document.createElement("div");
+			var newNode=document.createTextNode("abc");
+			//插入元素内部的最后一个位置
+//			myDiv.appendChild(newNode);
+			//插入元素内部的某个标签之前
+			//参数1：需要插入的元素
+			//参数2：插在该元素之前
+//			myDiv.insertBefore(newDiv,myP);
+			
+			
+			//改
+			//替换子节点
+			//参数1：要进行替换的节点（新的）
+			//参数2：要被进行替换的节点(旧的)
+//			myDiv.replaceChild(newDiv,myP);
+			
+			
+			//删
+			//移出子节点
+//			myDiv.removeChild(myP);
+			//移出自身
+//			myDiv.remove();
+
+			
+			//查
+			//判断节点内部是否有子节点
+			//有返回true,没有返回false
+			myDiv.hasChildNodes();
+			
+			console.log(myDiv.hasChildNodes());
+		</script>
+	</body>
+</html>

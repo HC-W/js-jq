@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>加减乘除</title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			function cheng(num1,num2){
+				if(isNaN(num1)){
+					console.log(num1+"输入有误！");
+				}else if(isNaN(num2)){
+					console.log(num2+"输入有误！");
+				}else{
+					var ji=num1*num2;
+				}
+				return ji;
+			}
+			function chu(num1,num2){
+				if(isNaN(num1)){
+					console.log(num1+"输入有误！");
+				}
+				else if(isNaN(num2)){
+					console.log(num2+"输入有误！");
+				}else{
+					var shang=num1/num2;
+					return shang;
+				}
+			}
+			var num1=8.4;
+			var num2=4;
+			var a=cheng(num1,num2);
+			var b=chu(num1,num2);
+			//console.log(a,b);
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>正则常用操作方法</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			// "|" ===|| (或)
+			var re=new RegExp("a|c","ig");
+			var str = new String("123Abcdabcd");
+			
+			//正则相关的操作方法: 
+			//1、test : 判断字符串是否符合正则规则。
+			//符合返回true,不符合返回false
+//			console.log(re.test(str));
+			
+			//2、match:返回匹配正则的首个字符串
+			//注意：(1)、 字符串的方法
+			//(2)、 加了正则对象g之后，会返回所有满足条件的字符串
+//			console.log(str.match(re));
+			
+			//3、replace:替换符合正则规则的字符串
+			//参数1 ：正则
+			//参数2 ：替换的字符串
+			//返回值为替换后的字符窜
+			console.log(str.replace(re,"hello"));
+			//原字符串没有改变，生成了新的字符串
+			console.log(str);
+			
+		</script>
+	</body>
+</html>

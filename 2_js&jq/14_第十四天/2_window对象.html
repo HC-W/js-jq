@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>window对象</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			//window.alert();
+			//浏览器在屏幕中的位置
+			//不兼容ie和火狐
+//			console.log(window.screenLeft,window.screenTop);
+			//同时兼容火狐，ie,谷歌等主流浏览器
+//			console.log(window.screenX,window.screenY);
+			
+			//ie8及以下不兼容
+			//浏览器内部窗口的宽高
+			console.log(window.innerWidth,window.innerHeight);
+			//全兼容
+//			console.log(document.documentElement.clientWidth,document.documentElement.clientHeight);
+			//浏览器外部整个的宽高
+//			console.log(window.outerWidth,window.outerHeight);
+			
+			
+			document.onclick=function(){
+				//打开一个新的窗口
+//				window.open("http://www.baidu.com/?wd=龙生九子","","width=300,height=300,left=500,top=500");
+				//关闭当前
+				window.close();
+			}
+		</script>
+	</body>
+</html>

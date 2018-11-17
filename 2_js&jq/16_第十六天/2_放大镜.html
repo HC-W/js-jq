@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>放大镜</title>
+		<style type="text/css">
+			.wrap{
+				overflow: hidden;
+			}
+			.min{
+				width: 350px;
+				height: 350px;
+				border: 1px solid black;
+				float: left;
+				position: relative;
+			}
+			.mb{
+				width: 150px;
+				height: 150px;
+				position: absolute;
+				background-color: rgba(0,0,0,0.3);
+				top: 0;
+				left: 0;
+				display: none;
+				cursor: move;
+			}
+			.max{
+				width: 500px;
+				height: 500px;
+				float: left;
+				border: 1px solid black;
+				overflow: hidden;
+				position: relative;
+				display: none;
+			}
+			.max img{
+				width: 1166.6666666667px;
+				position: absolute;          
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="min">
+				<img src="../img/min.jpg"/>
+				<div class="mb"></div>
+			</div>
+			<div class="max">
+				<img src="../img/max.jpg"/>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			function q(css){
+				return document.querySelector(css);
+			}
+			//获取元素
+			var minDiv=q(".min");
+			var maxDiv=q(".max");
+			var mbDiv=q(".mb");
+			var bigImg=q(".max img");
+			
+			//鼠标移入
+			minDiv.onmouseover=function(){
+				//显示maxDiv和mb
+				maxDiv.style.display="block";
+				mbDiv.style.display="block";
+			}
+			//鼠标移出
+			minDiv.onmouseout=function(){
+				//隐藏
+				maxDiv.style.display="none";
+				mbDiv.style.display="none";
+			}
+			
+			//鼠标在小div上移动
+			minDiv.onmousemove=function(ev){
+				//事件对象
+				var e=ev || window.event;
+				//鼠标移动坐标
+				var mouseX=e.clientX;
+				var mouseY=e.clientY;
+				//终点X坐标=鼠标位置-mb宽度的一半-minDiv的左边距
+				var endposX=mouseX-mbDiv.offsetWidth/2-minDiv.offsetLeft;
+				//终点Y坐标=鼠标位置-mb高度的一半-minDiv的上边距
+				var endposY=mouseY-mbDiv.offsetHeight/2-minDiv.offsetTop;
+				//限制边界
+				if(endposX<0){
+					endposX=0;
+				}else if(endposX>minDiv.clientWidth-mbDiv.offsetWidth){
+					endposX=minDiv.clientWidth-mbDiv.offsetWidth;
+				}
+				
+				if(endposY<0){
+					endposY=0;
+				}else if(endposY>minDiv.clientHeight-mbDiv.offsetHeight){
+					endposY=minDiv.clientHeight-mbDiv.offsetHeight;
+				}
+				mbDiv.style.left=endposX+"px";
+				mbDiv.style.top=endposY+"px";
+				
+				//蒙版的left / 可移动的最大left
+				//			||
+				//图片的left / 图片可移动的最大left
+				
+				//获取比例
+				//比例= 蒙版的left / 可移动的最大left
+//				var biliX=endposX / (minDiv.clientWidth-mbDiv.offsetWidth);
+//				var biliY=endposY / (minDiv.clientHeight-mbDiv.offsetHeight);
+//				
+//				//通过比例设置大图片的left
+//				var bigposX=-biliX*(bigImg.clientWidth-maxDiv.offsetWidth);
+//				var bigposY=-biliY*(bigImg.clientHeight-maxDiv.offsetHeight);
+//				//赋值
+//				bigImg.style.left=bigposX+"px";
+//				bigImg.style.top=bigposY+"px";
+
+
+				var biliX=maxDiv.clientWidth / mbDiv.offsetWidth;
+				var biliY=maxDiv.clientHeight / mbDiv.offsetHeight;
+				bigImg.style.left=-biliX*endposX+"px";
+				bigImg.style.top=-biliY*endposY+"px";
+			}
+		</script>
+	</body>
+</html>

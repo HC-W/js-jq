@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--1、外部引入-->
+		<!--<script src="../js/第一天/引入.js" type="text/javascript" charset="utf-8"></script>-->
+		<!--2、内部引入-->
+		<script type="text/javascript">
+			//页面从上到下执行，头部中引入时body里面的内容加载不到，所以需要加一句window.onload让页面先加载
+			//当页面加载完毕后，在执行
+			window.onload=function(){
+				alert("hello world!")
+				
+				//在这个里面书写js代码
+			}
+		</script>
+		
+		<!--注意：在头部引入js时，需要加  window.onload-->
+	</head>
+	<body>
+		<!--内部引入-->
+		<!--<script type="text/javascript">
+			
+		</script>-->
+		
+		
+		
+		<!--外部引入-->
+		<!--<script src="../js/第一天/引入.js" type="text/javascript" charset="utf-8"></script>-->
+	</body>
+</html>

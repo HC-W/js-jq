@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>事件委托</title>
+		<style type="text/css">
+			.wrap div{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				margin-bottom: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div></div>
+			<div></div>
+			<div></div>
+		</div>
+		<script type="text/javascript">
+			var myWrap=document.querySelector(".wrap");
+			var divs=document.querySelectorAll(".wrap div");
+		
+			//事件委托：利用冒泡的原理，让父级统一管理子级相同的事件
+			//再通过事件对象，获取到触发事件的子级
+			
+			//委托写法的点击事件
+			myWrap.onclick=function(ev){
+				var e=ev || window.event;
+				//获取触发事件的子级. ie写法e.srcElement
+				var t = e.target ||　e.srcElement;
+				//注意：父级也会触发,需要进行限制
+				if (t.parentNode==myWrap) {
+					t.style.backgroundColor="green";
+				} 
+				
+			}
+			
+//			for (var i=0;i<divs.length;i++) {
+//				divs[i].onclick=function(){
+//					this.style.backgroundColor="green";
+//				}
+//			}
+		</script>
+	</body>
+</html>

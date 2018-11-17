@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>冒泡排序</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			var arr=[3,21,10,4,7,32,1];
+			//比较的趟数
+			for (var i=0;i<arr.length-1;i++) {
+				//每趟比较的次数
+				//06 15 24 33 42 51
+				for(var j=0;j<arr.length-1-i;j++){
+					//交换
+					if(arr[j]>arr[j+1]){
+						var temp=arr[j];
+						arr[j]=arr[j+1];
+						arr[j+1]=temp;
+					}
+				}
+				
+			}
+			console.log(arr);
+			
+			
+		</script>
+	</body>
+</html>

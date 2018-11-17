@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>表单事件</title>
+	</head>
+	<body>
+		<form action="" class="fm">
+			<input type="text" value="" class="txt"/>
+			<input type="button" value="按钮" class="btn"/>
+			<input type="submit" class="sub" value="提交表单"/>
+		</form>
+		<script type="text/javascript">
+			//获取元素
+			var myForm=document.querySelector(".fm");
+			var myText=document.querySelector(".txt");
+			var myBtn=document.querySelector(".btn");
+			//当表单提交成功时，触发事件
+			myForm.onsubmit=function(){
+				alert("提交成功");
+			}
+			//当元素聚焦时，触发函数
+			myText.onfocus=function(){
+				console.log("text聚焦啦!");
+				this.style.backgroundColor="yellow";
+			}
+			//当元素失焦时，触发事件
+			myText.onblur=function(){
+				console.log("失焦了！");
+				this.style.backgroundColor="";
+			}
+			//比对元素聚焦时和失焦时的value值，如果值改变，则触发事件，如果值没有变化，则不触发事件
+			myText.onchange=function(){
+				console.log("change");
+			}
+		</script>
+	</body>
+</html>

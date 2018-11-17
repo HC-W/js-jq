@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>基础事件</title>
+	</head>
+	<body>
+		<div id="div1"></div>
+		
+		<script type="text/javascript">
+			var myDiv=document.getElementById("div1");
+			console.log(div1);
+			myDiv.style.width="200px";
+			myDiv.style.height="200px";
+			myDiv.style.backgroundColor="#38f";
+			
+			//点击事件 ele.onclick=function(){}
+			myDiv.onclick=function(){
+				//动态修改样式
+				myDiv.style.backgroundColor="red";
+			}
+			
+			
+			//鼠标移入事件
+			myDiv.onmouseover=function(){
+				myDiv.style.backgroundColor="green";
+			}
+			
+			
+			//鼠标移出事件
+			myDiv.onmouseout=function(){
+				myDiv.style.backgroundColor="fuchsia";
+			}
+			//跟hover区别：
+			/*1、hover移出会变回原来的样式
+			 *2、hover只可以修改自身或后代，事件随意修改
+			 */
+		</script>
+	</body>
+</html>

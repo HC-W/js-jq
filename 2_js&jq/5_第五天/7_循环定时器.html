@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>循环定时器</title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			//循环定时器:循环执行一段代码
+			
+			setInterval(function(){
+				循环执行的代码块
+			},执行的间隔时间);
+			
+			
+			var timer = setInterval(function(){
+				console.log("起床了！！！");
+			},1000);
+			//清除循环定时器
+			//clearInterval(定时器);
+			document.onclick=function(){
+				clearInterval(timer);
+			}
+		</script>
+	</body>
+</html>

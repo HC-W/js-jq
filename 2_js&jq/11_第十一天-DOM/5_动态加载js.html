@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>动态加载js</title>
+	</head>
+
+	<body>
+		<!--<script src="../js/动态加载.js" type="text/javascript" charset="utf-8"></script>-->
+		<script type="text/javascript">
+			document.onclick = function() {
+				var vip = document.createElement("script");
+				vip.setAttribute("type", "text/javascript");
+				vip.setAttribute("charset", "UTF-8");
+				vip.setAttribute("src", "../js/动态加载.js");
+
+				document.body.appendChild(vip);
+			}
+		</script>
+	</body>
+
+</html>

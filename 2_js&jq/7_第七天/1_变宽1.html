@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>变宽</title>
+		<style>
+			.div1{
+				width: 100px;
+				height: 100px;
+				/*padding: 15px;*/
+				/*border: 3px solid green;*/
+				background-color: red;
+				/*box-sizing: border-box;*/
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1"></div>
+		
+		<script type="text/javascript">
+			var myDiv=document.querySelector(".div1");
+			var w=myDiv.offsetWidth;
+//			myDiv.style.width=w*2+"px";
+			console.log(w);
+			console.log(myDiv.clientWidth);
+			
+			//增加的速度
+			var speed=1;
+			var timer=setInterval(function(){
+				//当div可见宽度到达500时，清除定时器
+				if(myDiv.offsetWidth==500){
+					//清除定时器
+					clearInterval(timer);
+				}else{
+					myDiv.style.width=myDiv.offsetWidth+speed+"px";
+				}
+			},20);
+			
+			//offsetWidth / offsetHeight :获取元素的可见宽度或高度
+			//可见宽度/高度： 内容+内边距+边框
+			
+			//注意：可读不可写
+			//取值的时候用offset、client.赋值时用style
+			
+			//clientWidth / clientHeight：获取元素的内容的宽度和高度
+			//内容宽度 / 高度：内容+内边距
+		</script>
+	</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>事件监听</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//事件监听：添加事件的另外一种形式
+			//参数： 
+			//1、事件的类型（注意：没有on!!!）
+			//2、事件的函数体
+			//3、事件流是否为捕获（true,false, 默认为false为冒泡）：可选参数，可写可不写
+			
+			//事件监听与普通事件添加有什么区别？
+			//1、可以设置事件流为冒泡或捕获
+			//2、当给同一个元素设置同一个事件时，事件监听不会冲突，全部都会触发
+			//3、某些事件在某些浏览器上只能用事件监听
+//			document.addEventListener("click",function(){
+//				alert("listen");
+//			});
+
+
+			document.addEventListener("click",hello,false);
+			document.addEventListener("click",function(){
+				alert("listen2");
+			},false);
+			function hello(){
+				alert("hello world!");
+			}
+			//移除事件监听，参数跟添加相同，第三个参数默认为false
+			document.removeEventListener("click",hello);
+			
+			//ie低版本不兼容
+			//ie写法
+			//ie上的所有事件都是冒泡的，其他浏览器都是捕获的
+			//添加事件监听：注意：两个参数，没有第三个参数，ie事件流就是冒泡
+			//attachEvent()
+			attachEvent();
+			//移除事件监听
+			detachEvent();
+		</script>
+	</body>
+</html>

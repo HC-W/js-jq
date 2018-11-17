@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>location对象</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			//location:浏览器地址
+			//返回完整的url地址：地址，服务，端口号，协议等等
+			document.write(location.href);
+			
+			//返回网络传输协议
+			console.log(location.protocol);
+			//返回主机域名，本机地址：127.0.0.1
+			console.log(location.hostname);
+			//返回端口号
+			console.log(location.port);
+			//返回本机地址加端口号：127.0.0.1:8020
+			console.log(location.host);
+			//返回路径信息
+			console.log(location.pathname);
+			//返回#号后面的所有信息
+			console.log(location.hash);
+			
+			document.onclick=function(){
+				//重新加载当前页面
+				location.reload();
+			}
+		</script>
+	</body>
+</html>

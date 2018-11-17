@@ -1,0 +1,125 @@
+<!--<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>变宽</title>
+		<style>
+			.div1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1"></div>
+		
+		<script type="text/javascript">
+			var myDiv=document.querySelector(".div1");
+//			var w=myDiv.offsetWidth;
+			//增加的速度
+			var speed=1;
+			var timer=setInterval(function(){
+				if(myDiv.offsetWidth==500){
+					//在宽度到达500的情况下再定义一个定时器，让其返回
+					var timer1=setInterval(function(){
+						if(myDiv.offsetWidth==w){
+							clearInterval(timer1);
+							clearInterval(timer);
+						}else{
+							myDiv.style.width=myDiv.offsetWidth-speed+"px";
+						}
+					},15);
+				}else{
+					myDiv.style.width=myDiv.offsetWidth+speed+"px";
+				}
+			},15);
+
+			
+			var speed=1;
+			var timer=setInterval(function(){
+				if(myDiv.offsetWidth==500){
+					speed=-1;
+				}
+				if(myDiv.offsetWidth==100){
+					speed=1;
+				}
+				myDiv.style.width=myDiv.offsetWidth+speed+"px";
+			},15);
+			
+			
+			
+			
+			
+			//offsetWidth / offsetHeight :获取元素的可见宽度或高度
+			//可见宽度/高度： 内容+内边距+边框
+			
+			//注意：可读不可写
+			//取值的时候用offset、client.赋值时用style
+			
+			//clientWidth / clientHeight：获取元素的内容的宽度和高度
+			//内容宽度 / 高度：内容+内边距
+		</script>
+	</body>
+</html>-->
+
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.div1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1"></div>
+		<script type="text/javascript">
+			var myDiv = document.querySelector(".div1");
+			
+//			var speed = 1;
+//			var timer = setInterval(function(){
+//				if(myDiv.offsetWidth == 500){
+//					speed = -1;
+//				}else if(myDiv.offsetWidth == 100){
+//					speed = 1;
+//				}
+//				myDiv.style.width = myDiv.offsetWidth + speed + "px";
+//			},10);
+			
+			
+			
+			var timer = null;
+			var speed = 1;
+			qu();
+			function qu(){
+				timer = setInterval(function(){
+					if(myDiv.offsetWidth == 500){
+						clearInterval(timer);
+						hui();
+					}else{
+						myDiv.style.width = myDiv.offsetWidth + speed + "px";
+					}
+				},10);
+			}
+			function hui(){
+				timer = setInterval(function(){
+					if(myDiv.offsetWidth == 100){
+						clearInterval(timer);
+						qu();
+					}else{
+						myDiv.style.width = myDiv.offsetWidth - speed + "px";
+					}
+				},10);
+			}
+			
+			
+		</script>
+	</body>
+</html>

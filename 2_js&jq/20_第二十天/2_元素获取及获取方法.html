@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>元素获取及获取方法</title>
+		<script src="../js/jq/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			window.onload=function(){
+				
+			}
+//			全写
+			$(document).ready(function(){
+				
+			})
+			//简写
+			$(function(){
+//				var div1=document.getElementById("div1");
+//				console.log(div1);
+
+				//方法：
+				//(1) html() === innerHTML
+				//	  text() 设置文本， 不可以识别标签
+				//可以识别标签
+				//(2) val() ===value
+				//
+				//直接通过$("选择器") 获取页面元素
+				$("#div1").html("<p>hahaha</p>");
+				$(".i1").val("请输入密码");
+			})
+		</script>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<input type="text" class="i1"/>
+	</body>
+</html>

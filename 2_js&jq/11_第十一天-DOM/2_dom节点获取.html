@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>dom节点获取</title>
+	</head>
+	<body>
+		<div class="wrap">
+			<div id="div0"></div>
+			<div id="div1">
+				<div>1</div>
+				<div>2</div>
+				<div>3</div>
+			</div>
+			<div id="div2"></div>
+		</div>
+		<script type="text/javascript">
+			//获取
+			var myDiv=document.getElementById("div1");
+			
+			//获取元素下的所有子节点
+			console.log(myDiv.childNodes);
+			//获取元素下的所有元素子节点
+			console.log(myDiv.children);
+			//获取父级节点
+			console.log(myDiv.parentNode);
+			console.log(myDiv.parentNode.nodeName);
+			
+			//下一个兄弟节点:  #text
+			console.log(myDiv.nextSibling.nodeValue);
+			//下一个兄弟元素节点 :div2
+			console.log(myDiv.nextElementSibling);
+			//上一个兄弟节点  :  #text
+			console.log(myDiv.previousSibling);
+			//上一个兄弟元素节点    ：div0
+			console.log(myDiv.previousElementSibling);
+			
+			//第一个子节点
+			console.log(myDiv.firstChild);
+			//第一个元素子节点
+			console.log(myDiv.firstElementChild);
+			//最后一个子节点
+			console.log(myDiv.lastChild);
+			//最后一个元素子节点
+			console.log(myDiv.lastElementChild);
+			
+			//判断节点内部是否有子节点
+			console.log(myDiv.hasChildNodes());
+		</script>
+	</body>
+</html>

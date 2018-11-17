@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jq动画</title>
+		<style type="text/css">
+			.div1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				margin: 100px;
+				padding: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1">hahaha</div>
+		<script src="../js/jq/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).on("click",function(){
+				//变化的值 : width  height  margin  padding   opacity
+				$(".div1").hide(2000,function(){
+					$(".div1").show(2000);
+				});
+				$(".div1").toggle(2000,function(){
+					alert("ok!");
+				});
+				
+				//jq动画
+				//只能修改可以变化量样式
+				
+				$(".div1").animate({
+					width:50,
+					height:50,
+					opacity:0.5
+				},"slow",function(){
+					alert("完成！");
+				});
+			})
+		</script>
+	</body>
+</html>

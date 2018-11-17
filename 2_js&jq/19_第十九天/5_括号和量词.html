@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>括号和量词</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//括号
+			// () :标记了一个子表达式的开始和结束
+			// [] :代表一个区间，代表字符的匹配范围
+				/*
+				 \d : [0-9]
+				 \w : [a-zA-Z0-9_]
+				 \W === [^a-zA-Z0-9_]
+				 
+				 注意："^"在[]中表示区间取反
+				 */
+			// {} :表示匹配的长度
+				/*
+				 n{x} === 匹配x个n的字符串
+				 n{x,y} === 匹配最少x个，最多y个n的字符串
+				 n{x,} === 匹配最少x个，最多无限个
+				 * */
+			/* 量词
+			  + ===最小1个，最多无限个 ,相当于 {1,}
+			  * === 最少0个，最多无限个，相当于{0,}
+			  ? === 最少0个，最多1个，相当于{0,1}
+			 
+			 * */
+			
+			/*var re=/a{2,3}/g;
+			var str="abcsaabcaabcsssbcaaabc";
+			console.log(str.match(re));*/
+			
+			var re=/(a[a-z]c)/g;
+			var str="abcabcsssbcsssacaagabc";
+			console.log(str.match(re));
+		</script>
+	</body>
+</html>

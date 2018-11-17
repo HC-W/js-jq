@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			//无参无返回值
+			function say(){
+				alert("hello");
+			}
+			say();
+			
+			//有参无返回值
+			function say1(what){
+				alert("hello"+what);
+			}
+			say1("world!");
+			
+			//无参有返回值（不常用，一般没有这种形式）
+			function say2(){
+				alert();
+				return true;
+			}
+			if(say2()){
+				
+			}
+			
+			//有参有返回值
+			function say3(what){
+				return "hello"+what;
+			}
+			var str= say3("你好！");
+			console.log(str+"baibai!");
+		</script>
+	</body>
+</html>

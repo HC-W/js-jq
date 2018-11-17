@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>鼠标事件</title>
+		<style type="text/css">
+			#div1{
+				width: 300px;
+				height: 300px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="div1"></div>
+		
+		<script type="text/javascript">
+			var myDiv1=document.getElementById("div1");
+			
+			//点击事件
+			myDiv1.onclick=function(){
+				console.log("click");
+			}
+			//鼠标移入移出
+			//注意：要成对配合使用
+//			myDiv1.onmousemove=function(){
+//				alert("mouseover");
+//			}
+//			myDiv1.onmouseout=function(){
+//				alert("mouseout");
+//			}
+//			myDiv1.onmouseenter=function(){
+//				alert("mouseenter");
+//			}
+//			myDiv1.onmouseleave=function(){
+//				alert("mouseleave");
+//			}
+			
+			//鼠标双击事件
+			myDiv1.ondblclick=function(){
+				console.log("dblclick");
+			}
+			
+			//当鼠标按下时触发
+			myDiv1.onmousedown=function(){
+				console.log("mousedown");
+			}
+			//鼠标抬起事件：优先级比click高
+			myDiv1.onmouseup=function(){
+				console.log("mouseup");
+			}
+			
+			//鼠标移动事件
+			myDiv1.onmousemove=function(){
+				console.log("mousemove");
+			}
+		</script>
+	</body>
+</html>

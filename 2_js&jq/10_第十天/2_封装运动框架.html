@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>封装运动框架</title>
+		<style type="text/css">
+			#div1{
+				width: 150px;
+				height: 150px;
+				background-color: red;
+				opacity: 1;
+				position:absolute;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div id="div1"></div>
+		<script src="运动框架封装.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var myDiv=document.getElementById("div1");
+			
+//			GGAni(myDiv,1,"width",500,1,"px",function(){
+//				myDiv.style.backgroundColor="green";
+//			});
+//			GGAni(myDiv,1,"top",500,1);
+//			GGAni(myDiv,10,"opacity",0,-0.01,"");
+
+			GGAni(myDiv,1,"width",500,1,"px",function(){
+				GGAni(myDiv,1,"height",300,1,"px",function(){
+					GGAni(myDiv,1,"opacity",0.2,-0.01,"");
+				});
+			});
+		</script>
+		
+	</body>
+</html>

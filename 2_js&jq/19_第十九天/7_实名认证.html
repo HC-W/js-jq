@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>实名认证</title>
+	</head>
+	<body>
+		<input class="t1" type="text"  value="" />
+		<input class="t2" type="button" id="" value="注册" />
+		<script type="text/javascript">
+			var t1=document.querySelector(".t1");
+			var t2=document.querySelector(".t2");
+			
+			//首尾字符：规定开头和结尾
+			//^:首
+			//$:尾
+			
+			//名字是2-4个中文
+			//限制开头和结尾
+			var re=/^[\u4e00-\u9fa5]{2,4}$/;
+			t2.onclick=function(){
+				var str=t1.value;
+				if(re.test(str)){
+					alert("hello,"+str);
+				}else{
+					alert("请输入正确的名字！");
+				}
+				t1.value="";
+			}		
+		</script>
+	</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.wrap{
+				width: 500px;
+				height: 400px;
+				border: 1px solid red;
+				position: relative;
+			}
+			.wrap div{
+				width: 50px;
+				height: 50px;
+				background-color: dodgerblue;
+				position: absolute;
+			}
+			
+			.snake{
+				left: 0;
+				top: 0;
+			}
+			.food{
+				left: 300px;
+				top: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="snake"></div>
+			<div class="food"></div>
+		</div>
+		<script type="text/javascript">
+			var myWrap = document.querySelector(".wrap");
+			var mySnake = document.querySelector(".snake");
+			var myFood = document.querySelector(".food");
+			//拖拽
+			mySnake.onmousedown = function(ev){
+				var e = ev || window.event;
+				//获取按下鼠标位置
+				var mouseX = e.clientX;
+				var mouseY = e.clientY;
+				//获取snake初始位置
+				var posX = this.offsetLeft;
+				var posY = this.offsetTop;
+				document.onmousemove = function(ev){
+					var e = ev || window.event;
+					//实时获取鼠标位置
+					var nowX = e.clientX;
+					var nowY = e.clientY;
+					//计算差值
+					var chaX = nowX-mouseX;
+					var chaY = nowY-mouseY;
+					//求left和top结果
+					var endX = posX+chaX;
+					var endY = posY+chaY;
+					//计算边界
+					//x
+					if(endX <= 0){
+						endX = 0;
+					}else if(endX >= myWrap.clientWidth-mySnake.offsetWidth){
+						endX = myWrap.clientWidth-mySnake.offsetWidth;
+					}
+					//y
+					if(endY <= 0){
+						endY = 0;
+					}else if(endY >= myWrap.clientHeight-mySnake.offsetHeight){
+						endY = myWrap.clientHeight-mySnake.offsetHeight;
+					}
+					//将计算好的结果赋值给left和top
+					mySnake.style.left = endX+"px";
+					mySnake.style.top = endY+"px";
+					
+					//碰撞检测
+					
+					var snakeL=mySnake.offsetLeft;
+					var snakeT=mySnake.offsetTop;
+					var snakeW=mySnake.offsetWidth;
+					var snakeH=myFood.offsetHeight;
+					var foodL=myFood.offsetLeft;
+					var foodT=myFood.offsetTop;
+					var foodW=myFood.offsetWidth;
+					var foodH=myFood.offsetHeight;
+					
+					//判断条件
+					var tj1=snakeL+snakeW>=foodL;
+					var tj2=snakeT+snakeH>=foodT;
+					var tj3=foodL+foodW>=snakeL;
+					var tj4=foodT+foodH>=snakeT;
+					//四个条件都必须满足
+					if(tj1 && tj2 && tj3 && tj4){
+						myFood.style.backgroundColor="black";
+					}else{
+						myFood.style.backgroundColor="";
+					}
+				}
+			}
+			//鼠标抬起，移除移动事件
+			document.onmouseup = function(){
+				document.onmousemove = false;
+			}
+		</script>
+	</body>
+</html>

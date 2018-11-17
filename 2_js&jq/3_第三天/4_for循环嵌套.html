@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>for循环嵌套</title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			for (var i=0;i<10;i++) {
+				for (var j=0;j<10-i;j++){
+					document.write("#");
+				}
+				for (var k=0;k<2*i+1;k++){
+					document.write("*");
+				}
+				document.write("<br>");
+			}
+			for (var l=0;l<9;l++) {
+				for (var m=0;m<l+2;m++){
+					document.write("#");
+				}
+				for (var n=2*i-3;n>2*l;n--){
+					document.write("*");
+				}
+				document.write("<br>");
+			}
+		</script>
+	</body>
+</html>

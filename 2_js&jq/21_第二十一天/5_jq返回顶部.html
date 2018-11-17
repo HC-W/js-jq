@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jq返回顶部</title>
+		<style type="text/css">
+			body{
+				height: 3333px;
+				background: url(../img/1.jpg);
+				background-size: 100%;
+				
+			}
+			.div1{
+				position: fixed;
+				right: 0;
+				bottom: 0;
+				background-color: red;
+				font-size: 20px;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1">what</div>
+		<script src="../js/jq/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(".div1").on("click",function(){
+				$("html").animate({
+					scrollTop:0
+				},500,function(){
+					alert("到顶了！");
+				})
+			})
+		</script>
+	</body>
+</html>

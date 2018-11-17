@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.wrap{
+				width: 300px;
+				height: 20px;
+				background-color: #ccc;
+				margin: 0 auto;
+				position: relative;
+			}
+			.scroll{
+				width: 20px;
+				height: 20px;
+				background-color: red;
+				position: absolute;
+				-webkit-user-select: none;
+			}
+			.div1{
+				margin: 0 auto;
+				background-color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="scroll"></div>
+		</div>
+		<div class="div1"></div>
+		<script type="text/javascript">
+			var myWrap = document.querySelector(".wrap");
+			var myScroll = document.querySelector(".scroll");
+			var myDiv = document.querySelector(".div1");
+			myDiv.maxW = 500;
+			myDiv.maxH = 500;
+			
+			myScroll.onmousedown = function(ev){
+				var e = ev || window.event;
+				//获取鼠标位置
+				var mouseX = e.clientX;
+				//获取按下时小块的位置
+				var scrollX = myScroll.offsetLeft;
+				document.onmousemove = function(ev){
+					var e = ev || window.event;
+					//实时获取鼠标位置
+					var nowX = e.clientX;
+					//计算偏移量
+					var pianyiX = nowX - mouseX;
+					//终点位置
+					var endPosX = scrollX + pianyiX;
+					//判断边界
+					if(endPosX < 0){
+						endPosX = 0;
+					}else if(endPosX > myWrap.clientWidth-myScroll.offsetWidth){
+						endPosX = myWrap.clientWidth-myScroll.offsetWidth;
+					}
+					//赋值
+					myScroll.style.left = endPosX + "px";
+					
+					//通过left，修改div的宽高
+					//当前left／可移动的最大left = 当前div尺寸／可变的最大尺寸
+					var bili = endPosX / (myWrap.clientWidth - myScroll.offsetWidth);
+					
+					//用bili计算宽高
+					myDiv.style.width = myDiv.maxW * bili + "px";
+					myDiv.style.height = myDiv.maxH * bili + "px";
+					
+				}
+			}
+			document.onmouseup = function(){
+				document.onmousemove = false;
+			}
+		</script>
+	</body>
+</html>

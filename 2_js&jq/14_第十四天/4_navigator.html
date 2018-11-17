@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>navigator</title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			//获取使用的浏览器信息的字符串
+			//识别用户所使用的浏览器
+			console.log(navigator.userAgent);
+			
+			//浏览器嗅探
+			//注意：不能先判断Safari，因为其他浏览器也可能输出Safari
+			if (navigator.userAgent.indexOf("Chrome")!=-1) {
+				alert("这是谷歌浏览器！");
+			} else if(navigator.userAgent.indexOf("Firefox")!=-1){
+				alert("这是火狐浏览器！");
+			}else if(navigator.userAgent.indexOf("Safari")!=-1){
+				alert("这是苹果自带浏览器！");
+			}
+			
+		</script>
+	</body>
+</html>

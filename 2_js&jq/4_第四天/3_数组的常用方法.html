@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			var arr=new Array(3,"hello",true,"hello",1);
+			
+			//push:从数组的尾部添加元素
+			arr.push("world");
+			//从数组的尾部弹出元素，返回值为弹出的元素
+			var a=arr.pop();
+			//从数组的头部添加元素
+			arr.unshift("qwer");
+			//从数组的头部弹出元素
+			arr.shift();
+			//返回元素在数组中第一次出现的位置，如果不存在，返回-1
+			var b=arr.indexOf(3);
+			//倒数时，返回元素在数组中第一次出现的位置，如果不存在，返回-1，下标没有变化
+			var c=arr.lastIndexOf("hello"); //结果为3
+			
+			//从数组中添加或删除元素（替换）
+			//可以写3个参数：从数组中的哪个位置进行操作、删除元素的数量、添加的元素(从删除的位置进行添加，可以为多个)
+			//只添加不删除时可以设置删除为0
+			arr.splice(3,1,"123","234","aaa");
+			
+			//不会直接操作数组，只是将数组转换为字符串，默认用“，”隔开，返回值为字符串，需要用变量接收
+			var abc=arr.join("&");  //将隔开符改为 &，没有的话默认 ,""空字符串表示不用间隔
+			
+			var arr2=["zxc","o",111];
+			
+			//合并数组(可以拼接多个值，多种类型):返回一个新的数组，需要用变量接收
+			var arr3=arr.concat(arr2,arr,"xyz",null);
+			
+	
+			console.log(arr3);
+			
+			
+		</script>
+	</body>
+</html>

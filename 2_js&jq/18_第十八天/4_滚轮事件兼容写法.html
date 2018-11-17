@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>滚轮事件兼容写法</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			window.addEventListener("mousewheel",sc);
+			window.addEventListener("DOMMouseScroll",sc);
+			
+			function sc(ev){
+				var e=ev || window.event;
+				//判断
+				//有值说明为谷歌等浏览器     大上    小下
+				/*if(e.wheelDelta){
+					if(e.wheelDelta<0){
+						console.log("向下");
+					}else if(e.wheelDelta>0){
+						console.log("向上");
+					}
+				//这个有值为火狐浏览器   大下   小上
+				}else if(e.detail){
+					if(e.detail>0){
+						console.log("向下");
+					}else if(e.detail<0){
+						console.log("向上");
+					}
+				}*/
+				
+				//简便写法：三目运算
+				e.wheelDelta?e.wheelDelta>0?console.log("向上"):console.log("向下"):e.detail>0?console.log("向下"):console.log("向上");
+			}
+		</script>
+	</body>
+</html>

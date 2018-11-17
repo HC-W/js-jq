@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>tab切换</title>
+		<style type="text/css">
+			.wrap div{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				font-size: 100px;
+				color: white;
+				display: none;
+				text-align: center;
+			}
+			.wrap .active{
+				background-color: yellow;
+			}
+			.wrap .show{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<input class="active" type="button" value="btn1"/>
+			<input type="button" value="btn2"/>
+			<input type="button" value="btn3"/>
+			<div class="show">A</div>
+			<div>B</div>
+			<div>C</div>
+		</div>
+		
+		<script src="../js/jq/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		
+//			window.onload = function(){
+//				
+//				var btns = document.querySelectorAll(".wrap input");
+//				var divs = document.querySelectorAll(".wrap div");
+//				
+//				for(var i = 0; i < btns.length; i++){
+//					//保存下标
+//					btns[i].index = i;
+//					btns[i].onclick = function(){
+//						//把所有的先变回去
+//						for(var j = 0; j < btns.length; j++){
+//							btns[j].className = "";
+//							divs[j].className = "";
+//						}
+//						this.className = "active";
+//						divs[this.index].className = "show";
+//					}
+//				}
+//				
+//			}
+//		
+		
+		//jQuery
+		$(function(){
+			$(".wrap input").on("click",function(){
+				$(".wrap input").attr("class","");
+				$(".wrap div").attr("class","");
+				$(this).attr("class","active");
+				$(".wrap div").eq($(this).index()).attr("class","show");
+			})
+		})
+		
+		
+		</script>
+
+	</body>
+</html>

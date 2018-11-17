@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>tween</title>
+		<style type="text/css">
+			.div1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1"></div>
+		<script src="../js/tween.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var myDiv=document.querySelector(".div1");
+			
+			var timer=null;
+//			var speed=1;
+			
+//			document.onclick=function(){
+//				clearInterval(timer);
+//				timer=setInterval(function(){
+//					if (myDiv.offsetWidth==600) {
+//						clearInterval(timer);
+//					} else{
+//						myDiv.style.width=myDiv.offsetWidth+speed+"px";
+//					}
+//				},1);
+//			}
+			document.onclick=function(){
+				//t \b \c \d
+				//动画执行的当前步数
+				var t=0;
+				//动画初始状态
+				var b=myDiv.offsetWidth;
+				//终点位置：为了计算差值
+				var endpos=600;
+				//动画差值：终点状态 - 起点状态（位置）
+				var c=endpos - b;
+				//动画执行的总步数
+				var d=100;
+				clearInterval(timer);
+				timer=setInterval(function(){
+					if(t==d){
+						clearInterval(timer);
+					}else{
+						//使用tween动画执行变化的过程
+						//刚开始的时候先往回走一段距离，然后前进
+//						myDiv.style.width=Tween.Back.easeInOut(t,b,c,d)+"px";
+						//匀速
+//						myDiv.style.width=Tween.Linear(t,b,c,d)+"px";
+						//到终点的时候返回一段距离
+						myDiv.style.width=Tween.Cubic.easeInOut(t,b,c,d)+"px";
+						//向终点迈步：向趋于终点的一方靠近
+						t++;
+					}
+				},1);
+			}
+		</script>
+	</body>
+</html>

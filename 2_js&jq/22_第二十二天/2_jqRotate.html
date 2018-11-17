@@ -1,0 +1,162 @@
+<!--<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Rotate</title>
+		<style type="text/css">
+			.div1{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				border-radius: 50%;
+				color: white;
+				font-size: 50px;
+				text-align: center;
+				line-height: 150px;
+				position: relative;
+			}
+			.grn{
+				position: absolute;
+				width: 100px;
+				height: 200px;
+				background-color: green;
+				top: 0;
+				right: 0;
+				border-top-right-radius: 100px;
+				border-bottom-right-radius: 100px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1">
+			<div class="grn"></div>
+		</div>
+		
+		<script src="../js/jq/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jq/jquery.rotate.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var a=0;
+				$(document).on("click",function(){
+					//获取旋转角度
+				    console.log($(".div1").getRotateAngle());
+					//旋转度数
+					a+=30;
+					$(".div1").rotate({
+						//每次转的起点
+//						angle:0,
+						animateTo:a,
+						//回调函数
+//						callback:abc
+					});
+				})
+				
+				function abc(){
+					alert("abc");
+				}
+//				$(".div1").rotate({
+//					bind:{
+//						mouseover:function(){
+//							$(this).rotate({
+//								animateTo:180
+//							});
+//						},
+//						mouseout:function(){
+//							$(this).rotate({
+//								animateTo:0
+//							});
+//						}
+//					}
+//				})
+				
+			})
+		</script>
+	</body>
+</html>
+-->
+	
+	
+	
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.div1 {
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				border-radius: 50%;
+				text-align: center;
+				line-height: 190px;
+				color: white;
+				font-size: 50px;
+				/*-webkit-transform: rotate(45deg);*/
+			}
+		</style>
+		<script src="../js/jq/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jq/jquery.rotate.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function() {
+//				var angle = 1;
+//				setInterval(function(){
+////				    angle *= 1.01;
+//				    $('.div1').rotate(angle);
+//				}, 50);
+				
+//				$(document).on("click", function() {
+//					//随机度数
+//					var randAn = rand(3*360,5*360);
+//					//旋转动画
+//					$(".div1").rotate({
+//						angle:0,//旋转角度
+//						duration:3000,//旋转时间
+//						animateTo: randAn,//终点角度
+//						callback:abc//回调函数
+//					});
+//					
+//				})
+//				function rand(min,max){
+//					return Math.floor(Math.random()*(max+1-min)+min);
+//				}
+//				function abc(){
+//					alert("ok");
+//					//获取旋转角度
+//					console.log($(".div1").getRotateAngle()[0]);
+//				}
+//				var rotation = function (){
+//				    $('.div1').rotate({
+//				        angle: 0, 
+//				        animateTo: 360, 
+//				        callback: rotation
+//				    });
+//				}
+//				rotation();
+				
+					$(".div1").rotate({
+						bind: {
+							mouseover: function() {
+								$(this).rotate({
+									animateTo: 180
+								});
+							},
+							mouseout: function() {
+								$(this).rotate({
+									animateTo: 0
+								});
+							}
+						}
+					});
+				
+
+			})
+		</script>
+	</head>
+
+	<body>
+		<div class="div1">div1</div>
+	</body>
+
+</html>

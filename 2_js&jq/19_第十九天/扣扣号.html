@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>扣扣号</title>
+	</head>
+	<body>
+		<input class="txt" type="text" value="" />
+		<input class="btn" type="button" value="确定" />
+		<script type="text/javascript">
+			var re=/^[1-9]\d{4,9}$/;
+			
+			//电话号   1没有124
+			//规则：1开头，3456789，11位
+			var reP=/^(0\d{3}-)|(\+86)1[3-9]\d{9}$/;
+			//邮箱    有@前面数字字母下划线，后面有东西      \w}@\w{}\.{a-z}
+			var reE=/^[\w\-]+@[a-zA-Z0-9]+(\.[a-z]{2,3}){1,2}$/;
+			var reE2=/^[a-zA-Z]\w+[a-zA-Z]@[a-zA-Z0-9]+(\.[a-z]{2,3}){1,2}$/;
+			console.log(reE);
+			//ip地址    ^0.0-255.0-255.0-255
+			//规则：首位不能是0， 可以是1-255.0-255.0-255.0-255
+			/*var reIp=/^(\d | [1-9]\d | (1\d{2} | 2[0-4]\d | 25[0-5]))\.(\d | [1-9]\d | (1\d{2} | 2[0-4]\d | 25[0-5]))\.(\d | [1-9]\d | (1\d{2} | 2[0-4]\d | 25[0-5]))\.(\d | [1-9]\d | (1\d{2} | 2[0-4]\d | 25[0-5]))/;*/
+			
+			var reIp=/^((\d|[1-9]\d|(1\d{2}|2[0-4]\d|25[0-5]))\.){3}(\d|[1-9]\d|(1\d{2}|2[0-4]\d|25[0-5]))/;
+			var str="0.0.0.1";
+			console.log(reIp.test(str));
+			//反斜杠\转义
+		</script>
+	</body>
+</html>

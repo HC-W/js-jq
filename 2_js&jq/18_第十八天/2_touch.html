@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>touch</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//touch事件：js原生针对移动端的手指事件
+			//(1) touchstart :手指按下
+			//(2) touchmove ：滑动
+			//(3) touchend ： 移开
+			
+			//注意：touch 事件只能用事件监听来绑定
+			
+			document.addEventListener("touchstart",function(ev){
+				//获取手指点击位置坐标
+				var t=ev.touches[0];
+//				console.log(t.clientX,t.clientY);
+			},false);
+			document.addEventListener("touchend",function(ev){
+				//end中获取手指位置，和开始移动不同
+				var t=ev.changedTouches[0];
+				console.log(t.clientX,t.clientY);
+			},false);
+			document.addEventListener("touchmove",function(ev){
+				//获取手指点击位置坐标
+				var t=ev.touches[0];
+//				console.log(t.clientX,t.clientY);
+			},false);
+		</script>
+	</body>
+</html>

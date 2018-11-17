@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>懒加载</title>
+		<style type="text/css">
+			body{
+				height: 3333px;
+			}
+			#img1{
+				position: absolute;
+				top: 1111px;
+			}
+		</style>
+	</head>
+	<body>
+		<img id="img1" src="" data-src="../img/银魂-土方十四郎.jpg"/>
+		<script type="text/javascript">
+			//懒加载：延迟加载,js延迟加载图片
+			//符合某些条件时,才去加载
+			
+			var myImg1=document.getElementById("img1");
+			//滚动
+			window.onscroll=function(){
+				//获取滚动偏移
+				var sh= window.pageYOffset|| document.documentElement.scrollTop || document.body.scrollTop;
+				//图片top = 滚动偏移 + 页面可见高度
+				//图片top
+				var tt = myImg1.offsetTop;
+				//可见高度
+				var kjh=document.documentElement.clientHeight;
+				//判断
+				if(sh+kjh>=tt){
+					//加载图片
+					var dataSrc=myImg1.getAttribute("data-src");
+					myImg1.setAttribute("src",dataSrc);
+				}
+			}
+		</script>
+	</body>
+</html>

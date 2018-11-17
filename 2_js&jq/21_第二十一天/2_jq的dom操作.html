@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jq的dom操作</title>
+		<style type="text/css">
+			.div1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+			.div2{
+				width: 200px;
+				height: 200px;
+				background-color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<div>1</div>
+		<!--<p></p>-->
+		<div>2</div>
+		<!--<p></p>-->
+		<div>3</div>
+		<!--<p></p>-->
+		<!--<div class="div1"></div>-->
+		<script src="../js/jq/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		//1、文本节点
+			//新增
+			$(".div1").text("div1");
+			//清空\删除     把所有div1都清空  
+			$(".div1").empty();
+		//2、属性节点
+			$(".div1").attr("class","div1 div2");
+			$(".div1").attr("class","");
+			console.log($(".div1").attr("class"));
+		//3、根节点
+			$(document).on("click",function(){
+				console.log($(this));
+			})
+		//4、元素节点
+			//创建节点
+			var newNode = $("<div class='div1'><div class='up'></div></div>");
+			var newNode = $("<div class='div1'>hello world</div>");
+			
+			//插入
+			//插入某节点尾部
+			$("body").append(newNode);
+			newNode.appendTo($("body"));
+			
+			//插入某节点头部
+			$("body").prepend(newNode);
+			newNode.prependTo($("body"));
+			
+			//插入到某节点的前面
+			//只有一个，要不放前面，要不放后边，按照从上到下的顺序执行覆盖操作
+			newNode.insertBefore($(".div2"));
+			//插入到某节点后面
+			newNode.insertAfter($(".div2"));
+			
+			//删除
+			//1、清空内容
+			
+			$(".body").empty();   //清除子集
+			newNode.empty();
+			//2、移除节点\删除节点
+			$(".div1").remove();   //清除自身
+			newNode.remove();
+
+			//克隆：clone()
+			$(".body").prepend(newNode.clone());
+			
+			//替换  replaceWith()\replaceAll()
+			var newNode2=$("<p class='div2'>ppp</p>")
+			$(".div1").replaceWith(newNode2);
+			newNode2.replaceAll($(".div1"));
+			
+			//包裹  动词v
+			//(1)wrap ： 给每一个包裹一个元素
+			$(".div1").wrap("<div class='div2'></div>");
+			//(2)wrapAll:给相邻整体包裹一个元素
+			$(".div1").wrapAll("<div class='div2'></div>");
+			$("p").wrapAll("<div class='div2'></div>");
+			//如果不相邻，就把隔着的标签拿出来放在后边
+			$("div").wrapAll("<div class='div2'></div>");
+			//(3)wrapInner:给内容套一个父级     每一个都套一个单独的父级
+			$("div").wrapInner("<span></span>");
+			
+		</script>
+	</body>
+</html>

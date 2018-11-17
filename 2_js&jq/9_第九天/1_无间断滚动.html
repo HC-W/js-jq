@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>无间断滚动</title>
+		<style type="text/css">
+			.screen{
+				width: 500px;
+				margin:0 auto;
+				border: 1px solid red;
+				position: relative;
+				overflow: hidden;
+			}
+			.screen img{
+				width: 300px;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="screen">
+				<img src="../img/1.jpg" alt="" />
+				<img src="../img/2.jpg" alt="" />
+				<img src="../img/3.jpg" alt="" />
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			window.onload=function(){
+				//获取元素
+				var myScr=document.querySelector(".screen");
+				var imgs=document.querySelectorAll(".screen img");
+//				console.log(myScr,imgs);
+				
+				//滚动定时器
+				var timer=null;
+				var speed=1;
+				//根据里面图片的高度给大框高度赋值
+				myScr.style.height=imgs[0].offsetHeight+"px";
+				
+				move();
+				//鼠标移入移出
+				myScr.onmousemove=function(){
+					clearInterval(timer);
+				}
+				myScr.onmouseout=function(){
+					move();
+				}
+				
+				//遍历图片
+				for (var i=0;i<imgs.length;i++) {
+					//设置left值，依次排开
+					imgs[i].style.left=i*imgs[i].offsetWidth+"px";
+				}
+				
+				//函数封装，定时器
+				function move(){
+					clearInterval(timer);
+					timer=setInterval(function(){
+						for (var j=0;j<imgs.length;j++) {
+							//所有图片一起移动
+							imgs[j].style.left=imgs[j].offsetLeft-speed+"px";
+							//当图片移动到screen外面的时候，让它回到最后一个位置
+							if(imgs[j].offsetLeft==-imgs[j].offsetWidth){
+								//放到最后一个位置
+								imgs[j].style.left=imgs[j].offsetLeft+imgs.length*imgs[j].offsetWidth+"px";
+//								console.log(imgs[j].style.left);
+							}
+						}
+					},1);
+				}
+			}
+		</script>
+	</body>
+</html>

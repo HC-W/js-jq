@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQ元素获取</title>
+	</head>
+	<body>
+		<div class="div1">
+			<p></p>
+			<p></p>
+			<p></p>
+		</div>
+		
+		<input type="text" />
+		<input type="submit" />
+		<script src="../js/jq/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				//三个里面的值都会有变化
+				$("p").html("hahaha");
+				//伪类选择器
+				$("p:first").html("nihao");
+				$("p:last").html("what");
+				//选择第几个p,下标
+				$("p:eq(1)").html("why");
+				
+				
+				$("p").first().html("第一个");
+				$("p").last().html("最后一个");
+				$("p").eq(1).html("第几个");  //下标
+				
+				//通过type属性的值获取标签
+				$(":text").val("hello world");
+				$(":submit").val("确认");
+				
+				//even偶数个，odd奇数个，从0开始
+				$("p:even()").html("偶数");
+				$("p:odd()").html("奇数");
+				
+			})
+		</script>
+	</body>
+</html>

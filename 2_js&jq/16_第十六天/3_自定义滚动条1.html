@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>自定义滚动条</title>
+		<style type="text/css">
+			.wrap{
+				width: 300px;
+				height: 20px;
+				background-color: #ccc;
+				margin: 0 auto;
+				position: relative;
+			}
+			.scroll{
+				width: 20px;
+				height: 20px;
+				background-color: red;
+				position: absolute;
+			}
+			.div1{
+				margin: 0 auto;
+				background-color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="scroll"></div>
+		</div>
+		<div class="div1"></div>
+		
+		<script type="text/javascript">
+			var wrap=document.querySelector(".wrap");
+			var scroll=document.querySelector(".scroll");
+			var myDiv=document.querySelector(".div1");
+			
+			myDiv.maxW=500;
+			myDiv.maxH=500;
+			
+			scroll.onmousedown=function(ev){
+				var e=ev || window.event;
+				//获取鼠标位置
+				var mouseX=e.clientX;
+				//获取按下时小块的位置
+				var scrollX=scroll.offsetLeft;
+				document.onmousemove=function(ev){
+					var e=ev || window.event;
+					//实时获取鼠标位置
+					var nowX=e.clientX;
+					//计算偏移量
+					var pianyiX=nowX-mouseX;
+					//终点位置
+					var endposX=scrollX+pianyiX;
+					//判断边界
+					if(endposX<0){
+						endposX=0;
+					}else if(endposX>wrap.clientWidth-scroll.offsetWidth){
+						endposX=wrap.clientWidth-scroll.offsetWidth;
+					}
+					//赋值
+					scroll.style.left=endposX+"px";
+					
+					//通过left,修改div的宽高
+					var bibi=endposX / (wrap.clientWidth-scroll.offsetWidth);
+					
+					//用bibi计算宽高 
+					myDiv.style.width=myDiv.maxW*bibi+"px";
+					myDiv.style.height=myDiv.maxH*bibi+"px";
+				}
+			}
+			document.onmouseup=function(){
+				document.onmousemove=false;
+			}
+		</script>
+	</body>
+</html>

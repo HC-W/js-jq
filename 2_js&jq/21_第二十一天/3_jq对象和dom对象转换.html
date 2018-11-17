@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jq对象和dom对象转换</title>
+	</head>
+	<body>
+		<div class="div1"></div>
+		<script src="../js/jq/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var myDiv=document.querySelector(".div1");
+			//把dom对象转换成jq对象
+			//在dom对象外加$()
+			$(myDiv).html("hello");
+			
+			//把jq对象转换成dom对象
+			//在jq对象后加[0]
+			$(".div1")[0].innerHTML="hello";
+		</script>
+	</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>localStorage</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//localStorage
+			//1、生命周期 ： 在不设置的情况下（默认），永远存在，如果想要把它删掉，必须手动删除或设置过期时间
+			//2、存储容量 ： 5MB
+			//3、作用域浏览器（可以跨页面）
+			
+			//增  的3种方式
+			//改相同，但必须是已有的字段，不然会新增
+			//window.localStorage   .  什么，就表示什么
+			window.localStorage.username = "gg";
+			window.localStorage["username2"] = "xiongda";
+			window.localStorage.setItem("username3","sfk");
+			
+			//改
+			window.localStorage.username= "ggg";
+			
+			//查     运行过以后，只要没有进行删除，即使全部注释掉也是有保存的
+			/*console.log(window.localStorage.username);
+			console.log(window.localStorage["username2"]);
+			console.log(window.localStorage.getItem("username3"));*/
+			
+			//删除
+			//单个删除
+//			window.localStorage.removeItem("username");
+			//整体删除
+//			window.localStorage.clear();
+			
+			for(var target in localStorage){
+//				console.log(target);
+//				console.log(localStorage[target]);
+			}
+			
+			//返回key，localStorage.key(下标)
+			for(var i=0;i<localStorage.length;i++){
+				var keys=localStorage.key(i);
+				var values = localStorage[keys];
+				console.log(keys+"="+values);
+			}
+		</script>
+	</body>
+</html>

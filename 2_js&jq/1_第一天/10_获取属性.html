@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>获取属性</title>
+		<style type="text/css">
+			.div1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var myDiv=document.getElementById("div1");
+				//可以 ele.属性
+				myDiv.style.width="200px";
+//				myDiv.className="div2";
+				var myInput=document.getElementById("i1");
+				myInput.name="radio";
+			}
+		</script>
+	</head>
+	<body>
+		<div id="div1" class="div1" style=""></div>
+		<input type="text" name="i1" id="i1"/>
+	</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>属性节点操作</title>
+		<style type="text/css">
+			.show{
+				color: red;
+				background-color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="text" name="i1" id="i1" value="hello World!" />
+		
+		<script type="text/javascript">
+			
+			var myInput=document.getElementById("i1");
+			
+			//查:
+			//获取属性节点：值和键都会获取下来
+			console.log(myInput.attributes.type);
+			//获取属性节点的值
+			console.log(myInput.type);
+			//获取属性节点的值：没有的时候返回空
+			console.log(myInput.getAttribute("type"));
+			
+			//改、增
+			myInput.onclick=function(){
+				//修改属性
+				//参数1：需要修改的属性
+				//参数2：属性要修改的值
+				myInput.setAttribute("type","button");
+				//注意：当需要设置的属性不存在时，直接加上该属性并设置值
+				myInput.setAttribute("abc","123");
+			}
+			
+			//删除
+			myInput.removeAttribute("value");
+			
+		</script>
+	</body>
+</html>

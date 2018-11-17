@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>while循环</title>
+	</head>
+	<body>
+		
+		<!--不知道循环次数的情况-->
+		
+		<script type="text/javascript">
+			
+//			while(循环条件){
+//				循环语句(一定要有向循环条件不满足情况下变化)
+//			}
+
+
+			/*可以与for替换
+			var i=0;
+			while(i<10){
+				console.log(i);
+				i++;
+			}*/
+			
+			//递增的数
+			var i=0;
+			//相加结果初始化
+			var sum=0;
+			//循环执行次数（加了多少次）
+			var count=0;
+			while(sum<=222){
+				i++;
+				//每次把相加的结果重新给sum,
+				//再用sum去加新的数
+				sum=sum+i;
+				//循环一次，次数++
+				count++;	
+			}
+			console.log(i,sum,count);
+		</script>
+	</body>
+</html>

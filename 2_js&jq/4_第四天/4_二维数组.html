@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>二维数组</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//二维数组：数组元素是数组
+			var arrE=[[1,2,3],["q","w","e"],[7,8,9]];
+			
+			//数组取值赋值
+			console.log(arrE[1][0]);
+			arrE[1][0]="qwer";
+			console.log(arrE);
+			
+			//遍历
+			for (var i=0;i<arrE.length;i++) {
+				for (var j=0;j<arrE[i].length;j++) {
+					console.log(arrE[i][j]);
+				}
+			}
+		</script>
+	</body>
+</html>

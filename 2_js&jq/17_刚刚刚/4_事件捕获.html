@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.div1{
+				width: 300px;
+				height: 300px;
+				background-color: red;
+			}
+			.div2{
+				width: 100px;
+				height: 100px;
+				background-color: #0f0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1">
+			<div class="div2"></div>
+		</div>
+		<script type="text/javascript">
+			var div1 = document.querySelector(".div1");
+			var div2 = document.querySelector(".div2");
+			
+		
+			//事件捕获: 当父级子级拥有相同事件时，触发顺序为从上到下
+			
+			div2.addEventListener("click",function(){
+				console.log("div2");
+			},true);
+			div1.addEventListener("click",function(){
+				console.log("div1");
+			},true);
+			document.addEventListener("click",function(){
+				console.log("document");
+			},true);
+			
+		</script>
+	</body>
+</html>

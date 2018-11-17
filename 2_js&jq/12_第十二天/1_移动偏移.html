@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>移动偏移</title>
+		<style type="text/css">
+			body{
+				height: 3333px;
+			}
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//页面滑动事件
+			window.onscroll=function(){
+				//页面顶端的纵向偏移量
+				//兼容各主流浏览器（谷歌，苹果浏览器，火狐）
+				//可读可写
+				var sh1=document.documentElement.scrollTop;
+				//兼容IE（不适用）
+				var sh2=document.body.scrollTop;
+				//兼容性较好，都兼容
+				//可读不可写
+				var sh3 = window.pageYOffset;
+//				console.log(sh1,sh2,sh3);
+				//兼容写法：把用户量使用大的放在前面
+				var sh = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+				//页面高度
+				//整个文档的高度:body的高度加上系统所带margin
+				var h1 = document.documentElement.scrollHeight;
+				//body的高度：3333
+				var h2 = document.body.clientHeight;
+				//页面可见高度
+				var h3 = document.documentElement.clientHeight;
+			}
+		</script>
+	</body>
+</html>

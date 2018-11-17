@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>事件监听2</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var count=0;
+			document.addEventListener("click",function(e){
+				hello(e,"123");
+				count++;
+				if(count>=2){
+					//取消事件监听
+					//arguments的属性callee,返回值是正在执行function对象本身
+					//清除匿名函数的eventListener
+					//注意：需要函数体内部清除
+					document.removeEventListener(e.type,arguments.callee,false);
+				}
+			},false);
+
+
+//			function hello(){
+//				console.log("hello world!");
+//			}
+			//事件对象的获取
+//			function hello(ev){
+//				var e=ev ||window.event;
+//				console.log(e);
+//			}
+			//传参
+			//第一个参数默认事件对象，必须留一个位置，即使不用也要留出来
+			function hello(ev,sth){
+				var e=ev ||window.event;
+				console.log(sth);
+			}
+
+//			function fn(a){
+//				hello(a,123);
+//			}
+		</script>
+	</body>
+</html>

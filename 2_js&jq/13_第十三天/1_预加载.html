@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>图片预加载</title>
+		<style type="text/css">
+			body:after{
+				content: "";
+				background-image: url(../img/1.jpg);
+				width: 0;
+				height: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<img id="myImg" src="../img/1.jpg" data-src="../img/1.jpg"/>
+		<script type="text/javascript">
+			//预加载：提前加载图片
+			//当用户需要查看时，可以直接从本地缓存中渲染
+			var myImg=document.getElementById("myImg");
+			var myScr=myImg.getAttribute("data-src");
+			myImg.setAttribute("src",myScr);
+//			var img=new Image();
+//			img.src="../img/1.jpg";
+//			//当图片加载完毕后，执行函数
+//			img.onload=function(){
+//				console.log(img.height);
+//			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>cookie 2</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			console.log(document.cookie);
+			
+			getCookie("username");
+//			console.log(ckArr);
+
+			//找哪个key的value
+			function getCookie(key){
+				var ck=document.cookie;
+				//字符串切割为数组
+				var ckArr=ck.split("; ");
+				console.log(ckArr);
+				
+				//遍历字符串数组
+				for(var i=0;i<ckArr.length;i++){
+					//再次切割： 按=号在切割一次
+					ckArr[i] = ckArr[i].split("=");
+					//通过key找value
+					//代表key
+					//判断key的值，输出对应value的值
+					if(ckArr[i][0] == key){
+						console.log(ckArr[i][1]);
+					}
+				}
+			}
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jq操作方法2</title>
+	</head>
+	<body>
+		<input type="text" class="i1" />
+		<p class="p1">
+			<span>
+				span1
+			</span>
+		</p>
+		<p class="p2" name="123">
+			<a href="">
+				<span>span2</span>
+			</a>
+		</p>
+		<p class="p3"></p>
+		
+		<script src="../js/jq/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//html()  text()  val()  css()
+				//(1)attr():设置属性
+				$(".i1").attr("type","button");
+				$(".i1").attr("value","按钮");
+				$(".i1").attr({
+					"type":"submit",
+					"value":"百度一下"
+				});
+				
+				//index():返回该元素在同级元素中的位置
+				console.log($(".p1").index());
+				
+				//filter\not:过滤(让查找更精确)
+				//filter增加一个查找条件
+				/*$("p").filter(".p1").html("p1");
+				$("p").filter("[name=123]").html("pName");
+				//not表示去掉一个查找条件
+				$("p").not("[name=123]").html("!name");*/
+				
+				//4、has():匹配到后代中含有has()里元素  的元素
+				//匹配的是含有需要元素的父级，而不是查找的子级
+				//后代中含有span的p标签
+				$("p").has("span").css("background-color","red");
+				
+				//5、find():找到该元素后代中满足find()条件的元素
+				//比如说找到body中的p元素
+				$("body").find("p").css("font-size","30px");
+			})
+		</script>
+	</body>
+</html>

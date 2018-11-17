@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>zepto_touch</title>
+		<style type="text/css">
+			.div1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1">div1</div>
+		<!--<script src="../js/jq/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>-->
+		<script src="../js/jq/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jq/zepto.touch.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//zepto:是一个轻量级基于js的类库，针对现代高端浏览器
+			//优势：轻量，下载执行速度快
+			//特点：偏向移动端
+			//注意：兼容性
+			
+			//touch
+			$(function(){
+				
+				//手指触碰
+				/*$(".div1").tap(function(){
+					console.log("tap");
+				})*/
+				
+				//可以用on来触发
+				//触碰一次，
+				//在750毫秒内，如果没有碰触第二次，视为单次触碰
+				/*$(".div1").singleTap(function(){
+					console.log("singletab");
+				})*/
+				
+				//触碰两次，即双击
+				//不会触发单次点击
+				//在0-250毫秒之内触碰两次，视为双击
+//				$(".div1").on("doubleTap",function(){
+//					console.log("doubleTap");
+//				})
+
+				//长按，
+				//长按时间超过750毫秒时，视为长按
+				/*$(".div1").longTap(function(){
+					console.log("longTap");
+				})*/
+				
+				
+				//滑动
+				/*$(".div1").swipe(function(){
+					console.log("swipe");
+				});*/
+				
+				$(".div1").swipeLeft(function(){
+					console.log("swipe");
+				});
+				$(".div1").swipeRight(function(){
+					console.log("swipe");
+				});
+				$(".div1").swipeDown(function(){
+					console.log("swipe");
+				});
+				$(".div1").swipeUp(function(){
+					console.log("swipe");
+				});
+			})
+		</script>
+	</body>
+</html>

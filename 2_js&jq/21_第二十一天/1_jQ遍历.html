@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQ遍历</title>
+	</head>
+	<body>
+		<div class="wrap">
+			<p>1</p>
+			<p>2</p>
+			<p>3</p>
+		</div>
+
+		<script src="../js/jq/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+//			$(".wrap p").html("ppp");
+
+			//遍历
+			$(".wrap p").each(function(){
+				console.log($(this).html());     //输出1  2  3
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>函数</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//函数：一段需要重复使用的、具有特定功能的代码块
+			//声明的语法
+			function 函数名(参数){
+				代码块
+				return 返回值;
+			}
+//			//函数的调用
+			函数名(参数)
+			//加函数
+			function addFn(num1,num2){
+				var sum=num1+num2;
+				return sum;  //调用时返回值返回给函数本身
+			}
+			//调用
+			var a= addFn(1,2);
+			console.log(a);
+
+			console.log(addFn(3,4));
+
+
+			//冒泡排序函数声明
+			function paixu(){
+				for (var i=0;i<arr.length-1;i++) {
+					for (var j=0;j<arr.length-1-i;j++) {
+						if(arr[j]>arr[j+1]){
+							var temp=arr[j];
+							arr[j]=arr[j+1];
+							arr[j+1]=temp;
+						}
+					}
+				}
+				return arr;
+			}
+			//函数调用
+			var arr=[2,4,3,8,1,0,4,6];
+			var a=paixu(arr);
+			console.log(a);
+			
+			
+		</script>
+	</body>
+</html>

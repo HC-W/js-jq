@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>大图滚动进阶版</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.screen{
+				width: 800px;
+				height: 450px;
+				margin:0 auto;
+				overflow: hidden;
+				position: relative;
+			}
+			.imgFa{
+				width: 2400px;
+				position: absolute;
+			}
+			.imgFa img{
+				width: 800px;
+				float: left;
+			}
+			.btn{
+				position: absolute;
+				bottom: 0;
+				padding: 10px 20px;
+				background-color: #CCCCCC;
+				cursor: pointer;
+			}
+			.btnleft{
+				right: 100px;
+			}
+			.btnright{
+				right: 0;
+			}
+			.smallBtn{
+				text-align: center;
+			}
+			.smallBtn span{
+				display: inline-block;
+				width: 15px;
+				height: 15px;
+				background-color: #ccc;
+				cursor: pointer;
+				border-radius: 50%;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="screen">
+				<div class="imgFa">
+					<img src="../img/1.jpg" alt="" />
+					<img src="../img/2.jpg" alt="" />
+					<img src="../img/3.jpg" alt="" />
+				</div>
+				<div class="btn btnleft">lastImg</div>
+				<div class="btn btnright">nextImg</div>
+			</div>
+			<div class="smallBtn">
+				<span style="background-color: red;"></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			
+			function q(css){
+				return document.querySelector(css);
+			}
+			var myWrap=q(".wrap");
+			var myScr=q(".screen");
+			var myImgFa=q(".imgFa");
+			var myNextBtn=q(".btnright");
+			var myLastBtn=q(".btnleft");
+			//获取小按钮
+			var smallBtns=document.querySelectorAll(".smallBtn span");
+			console.log(myNextBtn,myLastBtn,smallBtns);
+			//获取当前页数:当前展示第几张图片
+			var index=0;
+			//速度
+			var speed=10;
+			//终点位置
+			var endPos=0;
+			//滚动定时器
+			var rollTimer=null;
+			
+			//自动滚动定时器
+			var autoTimer=null;
+			
+			autoRoll();
+			//向下一张滚动
+			function nextRoll(){
+				//页数++
+				index++;
+				//判断页数是否超出
+				if(index>=3){
+					//页数变回0
+					index=0;
+					//改变移动方向
+					speed=10;
+					
+				}else{
+					speed=-10;
+				}
+//				console.log(index);
+//				endPos=-index*myScr.offsetWidth;
+//				clearInterval(rollTimer);
+//				rollTimer=setInterval(function(){
+//					//判断到达终点
+//					if(myImgFa.offsetLeft==endPos){
+//						//停止
+//						clearInterval(rollTimer);
+//					}else{
+//						//移动
+//						myImgFa.style.left=myImgFa.offsetLeft-speed+"px";
+////						console.log(myImgFa.style.left);
+//					}
+//				},1);
+				move();
+				changeColor(smallBtns[index]);
+			}
+			
+			
+			//向上一张滚动
+			function lastRoll(){
+				//页数--
+				index--;
+				//判断是否到达第一张
+				if(index<0){
+					//变为最后一张
+					index=2;
+					speed=-10;
+				}else{
+					speed=10;
+				}
+				//设置终点位置
+//				endPos=-index*myScr.offsetWidth;
+//				clearInterval(rollTimer);
+//				rollTimer=setInterval(function(){
+//					//判断
+//					if(myImgFa.offsetLeft==endPos){
+//						//停止
+//						clearInterval(rollTimer);
+//					}else{
+//						//移动
+//						myImgFa.style.left=myImgFa.offsetLeft+speed+"px";
+//					}
+//				},1);
+				move();
+				changeColor(smallBtns[index]);
+				
+			}
+			//自动滚动定时器
+			function autoRoll(){
+				clearInterval(autoTimer);
+				//每隔2秒调用一次向下一次滚动
+				autoTimer=setInterval(function(){
+					nextRoll();
+//					changeColor(smallBtns[index]);
+				},2000);
+			}
+			//鼠标移入，停止自动滚动
+			myWrap.onmousemove=function(){
+				clearInterval(autoTimer);
+			}
+			//鼠标移出，继续自动滚动
+			myWrap.onmouseout=function(){
+				autoRoll();
+			}
+			
+			//点击下一张按钮
+			myNextBtn.onclick=function(){
+				//每次点击之前，都让它回到上一次点击的终点位置（起始位置）
+				myImgFa.style.left=endPos+"px";
+				nextRoll();
+//				changeColor(smallBtns[index]);
+			}
+			//点击上一张按钮
+			myLastBtn.onclick=function(){
+				myImgFa.style.left=endPos+"px";
+				lastRoll();
+//				changeColor(smallBtns[index]);
+			}
+			
+			//遍历小按钮
+			for (var i=0;i<smallBtns.length;i++) {
+				//自定义属性：保存下标
+				smallBtns[i].index=i;
+				//点击事件
+				smallBtns[i].onclick=function(){
+					myImgFa.style.left=endPos+"px";
+					//调用颜色变化的函数
+					changeColor(this);
+					//变化
+					//页数改变之前，比较一下当前点击的下标和上一次（即目前停留页面）的下标
+					if(index<this.index){
+						speed=-10;
+					}else if(index>this.index){
+						speed=10;
+					}
+					//页数=点击按钮下标
+					index=this.index;
+					//确定终点位置
+//					endPos=-index*myScr.offsetWidth;
+//					clearInterval(rollTimer);
+//					rollTimer=setInterval(function(){
+//						//判断
+//						if (myImgFa.offsetLeft==endPos) {
+//							//停止
+//						} else{
+//							//移动
+//							myImgFa.style.left=myImgFa.offsetLeft+speed+"px";
+//						}
+//						
+//					},1);
+					move();
+				}
+			}
+			
+			//改变颜色
+			function changeColor(who){
+				for (var j=0;j<smallBtns.length;j++) {
+						smallBtns[j].style.backgroundColor="";
+					}
+				//点击哪个哪个变化
+				who.style.backgroundColor="red";
+			}
+			
+			function move(){
+				endPos=-index*myScr.offsetWidth;
+				clearInterval(rollTimer);
+				rollTimer=setInterval(function(){
+					//判断
+					if (myImgFa.offsetLeft==endPos) {
+						//停止
+					} else{
+						//移动
+						myImgFa.style.left=myImgFa.offsetLeft+speed+"px";
+					}	
+				},1);
+			}
+		</script>
+	</body>
+</html>
+

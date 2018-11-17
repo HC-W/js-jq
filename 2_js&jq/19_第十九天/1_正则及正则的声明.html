@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>正则及正则的声明</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//正则：给字符串制定规则
+			//正则声明：1、对象   2、字面量
+			
+			//对象方式
+			//1、正则表达式
+			//2、正则对象
+			var re=new RegExp("a","img");
+//			console.log(re);
+			//字面量
+			var re2=/b/img;
+//			console.log(re2);
+			
+			//区别：
+			//对象声明的形式，可以加变量
+			//eg:
+			var a="aaa";
+			var re3=new RegExp(a,"img");
+			console.log(re3);
+
+			//正则对象
+			//i : 不区分大小写
+			//g : 全局匹配
+			//m : 多行匹配
+			
+		</script>
+	</body>
+</html>

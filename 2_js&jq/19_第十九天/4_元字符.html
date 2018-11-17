@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>元字符</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//元字符：一些具有特定功能的字符
+			//(1) . : 匹配除了反斜杠\n以外的所有字符
+			//(2) \d : 匹配数字
+			//(3) \w : 匹配数字、字母、下划线
+			//(4) \s : 匹配空白占位符
+			//(5) \D : 匹配所有非数字
+			//(6) \W : 匹配所有非数字、字母、下划线
+			//(7) \S : 匹配所有非空白占位符
+			//(8) \u : 匹配中文
+			//			匹配所有中文[\u4e00-\u9fa5]
+			
+			/*var re=/\d/g;
+			//加g全局匹配，不加g返回第一个
+			var str = "123456";
+			console.log(str.match(re));*/
+			
+			/*var re=/\w/g;
+			//加g全局匹配，不加g返回第一个
+			var str = "1,2_3w+5~6abc";
+			console.log(str.match(re));*/
+			
+			/*var re=/\s/g;
+			//加g全局匹配，不加g返回第一个
+			var str = " 	 		1,2_3w+5~6abc";
+			console.log(str.match(re));*/
+			
+			/*var re=/\D/g;
+			//加g全局匹配，不加g返回第一个
+			var str = " 1,2_3w+5~6abc";
+			console.log(str.match(re));*/
+			
+			//匹配所有中文
+			var re=/[\u4e00-\u9fa5]/g;
+			//加g全局匹配，不加g返回第一个
+			var str = "1,2_3w+白云5~6abc";
+			console.log(str.match(re));
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jq事件</title>
+		<style type="text/css">
+			.div1{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				margin: 100px;
+				padding: 100px;
+				font-size: 50px;
+			}
+		</style>
+		
+		<script src="../js/jq/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				
+				//区别：直接用"事件()"写法不支持给动态元素绑定事件
+				/*$(document).on("click",function(){
+					alert($(this));
+					console.log($(this));
+				})*/
+				
+				/*$(document).click(function(ev){
+					console.log(ev);
+				})*/
+				
+				//hide()  show()
+//				var isShow=true;
+				$(document).on("click",function(){
+//					if(isShow){
+//						$(".div1").hide();
+//					}else{
+//						$(".div1").show();
+//					}
+//					isShow=!isShow;
+
+					$(".div1").toggle();
+				})
+				
+			})
+		</script>
+	</head>
+	<body>
+		<div class="div1">div1</div>
+	</body>
+</html>

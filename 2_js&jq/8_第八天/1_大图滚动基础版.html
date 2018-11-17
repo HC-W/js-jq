@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>大图滚动基础版</title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.screen{
+				width: 800px;
+				height: 450px;
+				margin:0 auto;
+				overflow: hidden;
+				position: relative;
+			}
+			.imgFa{
+				width: 2400px;
+				position: absolute;
+			}
+			.imgFa img{
+				width: 800px;
+				float: left;
+			}
+			.btn{
+				position: absolute;
+				bottom: 0;
+				padding: 10px 20px;
+				background-color: #CCCCCC;
+				cursor: pointer;
+			}
+			.btnleft{
+				right: 100px;
+			}
+			.btnright{
+				right: 0;
+			}
+			.smallBtn{
+				text-align: center;
+			}
+			.smallBtn span{
+				display: inline-block;
+				width: 15px;
+				height: 15px;
+				background-color: #ccc;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="screen">
+				<div class="imgFa">
+					<img src="../img/1.jpg" alt="" />
+					<img src="../img/2.jpg" alt="" />
+					<img src="../img/3.jpg" alt="" />
+				</div>
+				<div class="btn btnleft">lastImg</div>
+				<div class="btn btnright">nextImg</div>
+			</div>
+			<div class="smallBtn">
+				<span></span>
+				<span></span>
+				<span></span>
+			</div>
+		</div>
+		
+		<script type="text/javascript">
+			
+			function q(css){
+				return document.querySelector(css);
+			}
+			var myScr=q(".screen");
+			var myImgFa=q(".imgFa");
+			
+			//获取当前页数:当前展示第几张图片
+			var index=0;
+			//速度
+			var speed=10;
+			//终点位置
+			var endPos=0;
+			//滚动定时器
+			var rollTimer=null;
+			
+			//自动滚动定时器
+			var autoTimer=null;
+			
+			autoRoll();
+			//向下一张滚动
+			function nextRoll(){
+				//页数++
+				index++;
+				//判断页数是否超出
+				if(index>=3){
+					//页数变回0
+					index=0;
+					//改变移动方向
+					speed=-10;
+					
+				}else{
+					speed=10;
+				}
+//				console.log(index);
+				endPos=-index*myScr.offsetWidth;
+				clearInterval(rollTimer);
+				rollTimer=setInterval(function(){
+					//判断到达终点
+					if(myImgFa.offsetLeft==endPos){
+						//停止
+						clearInterval(rollTimer);
+					}else{
+						//移动
+						myImgFa.style.left=myImgFa.offsetLeft-speed+"px";
+//						console.log(myImgFa.style.left);
+					}
+				},1);
+			}
+			
+			//自动滚动定时器
+			function autoRoll(){
+				clearInterval(autoTimer);
+				//每隔2秒调用一次向下一次滚动
+				autoTimer=setInterval(function(){
+					nextRoll();
+				},2000);
+			}
+			//鼠标移入，停止自动滚动
+			myScr.onmousemove=function(){
+				clearInterval(autoTimer);
+			}
+			//鼠标移出，继续自动滚动
+			myScr.onmouseout=function(){
+				autoRoll();
+			}
+		</script>
+	</body>
+</html>

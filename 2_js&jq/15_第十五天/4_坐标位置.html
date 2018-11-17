@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>坐标位置</title>
+		<style type="text/css">
+			body{
+				height: 3333px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			document.onclick=function(ev){
+				//事件对象
+				var e=ev || window.event;
+				console.log(e);
+				//触发事件的类型
+				console.log(e.type);
+				//获取事件触发时，鼠标相对于浏览器窗口的位置
+				console.log(e.clientX,e.clientY);
+				//获取事件触发时，鼠标相对于整个文档或页面的位置，会随着整个页面高度的变化而变化
+				console.log(e.pageX,e.pageY);
+				//获取事件触发时，鼠标相对于整个电脑屏幕的位置
+				console.log(e.screenX,e.screenY);
+			}
+		</script>
+	</body>
+</html>

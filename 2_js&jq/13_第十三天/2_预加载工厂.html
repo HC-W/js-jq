@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>预加载工厂</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//保存加载好的图片路径
+			var imgArr=[];
+			//图片总数
+			var imgCount=20;
+			//加载完成的图片数量
+			var overImgLoad=0;
+			for (var i=0;i<imgCount;i++) {
+				//创建图片
+				var imgObj=new Image();
+				//利用Src加载图片
+				imgObj.src="../imghua/"+i+".jpg";
+				//加载完毕
+				imgObj.onload=function(){
+					//加载完成的图片数++
+					overImgLoad++;
+					//加载进度
+					var loadJd=overImgLoad / imgCount;
+					//换算百分比
+					loadJd *=100;
+					//显示加载进度
+					document.body.innerHTML+="已经加载"+loadJd.toFixed(2)+"%<br>";
+					//当进度为100%，全部加载完成
+					if(loadJd==100){
+						document.body.innerHTML += "<br>全部加载完成！";
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>date对象</title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			//date是系统提供的一个时间对象
+			//它可以获取系统时间
+			
+			
+			//获取本地时间
+			var myDate=new Date();
+			
+			//自定义时间
+			var newDate=new Date(2012,5,20,18,40,30);
+			//获取年份
+			var myYear=myDate.getFullYear();
+			//获取月份:月份从0开始，所以需要加1
+			var myMonth=myDate.getMonth()+1;
+			//获取日
+			var myDay=myDate.getDate();
+			//获取星期
+			var myWeed=myDate.getDay();
+			//获取小时
+			var myHour=myDate.getHours();
+			//获取分钟
+			var myMin=myDate.getMinutes();
+			//获取秒
+			var myMiao=myDate.getSeconds();
+			//获取毫秒数
+			var myMilli=myDate.getMilliseconds();
+			console.log(myYear,myMonth,myDay,myWeed,myHour,myMin,myMiao,myMilli);
+		</script>
+	</body>
+</html>

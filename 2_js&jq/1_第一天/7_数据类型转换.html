@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>数据类型转换</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//后边带括号的都是方法函数
+			/*Number():转换成Number类型()
+			1、字符串：如果都是合理数字，则转换为数字
+			2、boolean类型：true转成1，false转成0
+			3、如果非上面所述，其余转为NaN
+			*/
+			var a="123";
+			a=Number(a);
+			console.log(a);
+			
+			
+			//parseInt():转换成Number类型的整型（只转整型，直接舍去小数点后的数值）
+			/*1、字符串：忽略空格，如果第一个字符是数字，则继续向后取，直到非数字为止。即只取整数
+			 如果第一个字符不为数字，则转为NaN
+			 2、boolean类型：true\false转为NaN
+			 3、Number类型：取小数点之前
+			 4、如果非上面所述，其余转为NaN*/
+			var b="3.14avc";
+			b=parseInt(b);
+			console.log(b);
+			
+			
+			//parseFloat()
+			/*第一个小数点生效，后面的位非数字类型
+			 其余特点同上parseInt*/
+			var c="3.14avc";
+			c=parseInt(c);
+//			小数点后面有几位
+			console.log(c.toFixed(3));
+			
+			
+			
+		</script>
+	</body>
+</html>

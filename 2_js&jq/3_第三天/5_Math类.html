@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			//Math是一个系统提供的封装了很多关于数学上的属性和方法
+			console.log(Math);
+			//向上取整
+			console.log(Math.ceil(3.14));
+			//向下取整
+			console.log(Math.floor(3.14));
+			//四舍五入取整
+			console.log(Math.round(3.14));
+			//取最大值和最小值
+			console.log(Math.max(3,3,5,7,1));
+			console.log(Math.min(3,3,5,7,1));
+			//随机数：取值范围0-1开区间（取不到0和1）
+			var a=Math.random();
+			console.log(a);
+
+			//取值0-10
+			var a=Math.floor(Math.random()*(10+1));
+			//取值2-5
+			var b=Math.floor(Math.random()*(5+1-2)+2);
+			
+			//随机数取值范围规律
+			Math.floor(Math.random()*(max+1-min)+min);
+		</script>
+	</body>
+</html>

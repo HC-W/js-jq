@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//点击次数
+			var clickCount = 0;
+			document.addEventListener("click",function(a){
+				hello(a,123);
+				clickCount ++;
+				if(clickCount >= 2){
+					console.log(arguments.callee);
+					//arguments的属性callee，返回值是正在执行function对象本身
+					//清除匿名函数的eventListener
+					//注意：需在函数体内部清除
+					document.removeEventListener(a.type,arguments.callee,false);
+				}
+			},false);
+			function hello(b,sth){
+				console.log(sth);
+			}
+			
+//			
+//			document.addEventListener("dblclick",function(){
+//				console.log("db");
+//				document.removeEventListener("click",a,false);
+//			})
+			
+			
+			
+		</script>
+	</body>
+</html>

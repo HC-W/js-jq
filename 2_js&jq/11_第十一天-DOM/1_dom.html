@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>dom</title>
+	</head>
+	<body>
+		<div id="div1">
+			hello world!
+		</div>
+		<script type="text/javascript">
+			var myDiv=document.getElementById("div1");
+			
+			//什么是dom:
+			//document   object   model
+			//把整个文档看作一颗dom树，文档上的所有东西都是这棵树上的dom节点
+			//可以让脚本动态地对文档上的节点进行操作
+			//dom节点:12个，需要知道1,2,3,8,9
+			
+			//9:document节点
+			//nodeType:9
+			//nodeName:#document    节点名称
+			//nodeValue:null
+			
+			//1:element节点
+			//nodeType:1
+			//nodeName:DIV(大写标签名)
+			//nodeValue:null
+			
+			//2:attribute节点
+			var att=myDiv.attributes.id;
+			//nodeType:2
+			//nodeName:id
+			//nodeValue:div1
+			
+			//3:text节点
+			var con=myDiv.firstChild;      //第一个子节点
+			//nodeType:3
+			//nodeName:#text
+			//nodeValue:hello world!    内容
+			console.log(con.nodeValue);
+		</script>
+	</body>
+</html>

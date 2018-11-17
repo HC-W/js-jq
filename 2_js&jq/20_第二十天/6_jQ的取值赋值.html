@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQ的取值赋值</title>
+	</head>
+	<body>
+		<div class="div1">
+			<p>1</p>
+			<p>2</p>
+			<p>3</p>
+			<p>4</p>
+			<p>5</p>
+		</div>
+		
+		<script src="../js/jq/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+//				$(".div1").html("div111").css({"height":"100px","background-color":"red"});
+				$(".div1").css({"height":"200px","background-color":"red"});		
+//				console.log($(".div1").html());
+//				//在样式中直接取值
+//				console.log($(".div1").css("height"));
+//				//注意：取颜色时，返回值的格式是rgb()格式
+//				console.log($(".div1").css("background-color"));
+				
+				
+				//取值赋值多个元素
+				//赋值不用遍历，可以省略for
+//				$(".div1 p").html("p");
+				//取值需要遍历，不然只会取到首个元素的值
+				for(var i=0;i<$(".div1 p").length;i++){
+					console.log($(".div1 p").eq(i).html());
+				}
+			})
+		</script>
+	</body>
+</html>

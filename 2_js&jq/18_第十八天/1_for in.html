@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>for in</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			var arr=[1,"abc",2,3];
+			var data={
+				id:1,
+				name:"sfk",
+				age:20
+			};
+			//遍历数组时i为元素下标
+			for(var i in arr){
+				console.log(arr[i]);
+			}
+			
+			//遍历集合时
+			for(var target in data){
+				//输出为键值对的键  ：id  name   age
+//				console.log(target);
+				//输出键值对的的值 ：1  sfk  20
+//				console.log(data[target]);
+				//利用字符串拼接，输出键值对的键  和  值
+//				console.log(target+":"+data[target]);
+			}
+		</script>
+	</body>
+</html>

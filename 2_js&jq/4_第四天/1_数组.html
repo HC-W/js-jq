@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>数组</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//什么是数组：一个装着多个元素数据的集合/数据类型
+			
+			//数组声明
+			//（1）使用对象声明
+			/*var array1=new Array();//空数组
+			console.log(array1);
+			
+			var array2=new Array(3);//声明一个长度为3的数组
+			console.log(array2);
+			
+			var array3=new Array(1,2,3);//声明一个数组，内容为1,2,3
+			console.log(array3);
+			
+			var array4=new Array(1,"abc",3);
+			console.log(array4);
+			*/
+			
+			//(2)字面量表示
+			var array5=[]; //空数组
+			var array6=[3]; //数组内容为3
+			var array6=[3,"hello",null,true];
+//			console.log(array6);
+//			console.log(array6.length);
+			
+			//数组的取值和赋值
+			//注意:数组下标从0开始
+			var num=array6[1];
+			//数组中的最后一个值：数组[数组的长度-1]
+			var lastNum=array6[array6.length-1];
+			//数组中下标为3的值变为world
+			array6[3]="world";
+			console.log(array6);
+			
+			//遍历
+			for (var i=0;i<array6.length;i++) {
+				console.log(array6[i]);
+			}
+		</script>
+	</body>
+</html>

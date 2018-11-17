@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>移动</title>
+		<style>
+			.div1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+				border:5px solid blue;
+			}
+			.div2{
+				width:1px;
+				height: 500px;
+				position: absolute;
+				left: 500px;
+				background-color: green;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1"></div>
+		<div class="div2"></div>
+		<script type="text/javascript">
+			var myDiv=document.querySelector(".div1");
+			var myDiv2=document.querySelector(".div2");
+//			myDiv.style.left="300px";
+
+			//设定速度的时候要注意移动的距离限制，最好刚好能够达到终点，不然就会超出或者移出去
+			var speed=1;
+			var timer=setInterval(function(){
+				
+				//这个位置尽量不要写固定值，除非必须写
+				if(myDiv.offsetLeft==myDiv2.offsetLeft-myDiv.clientWidth-2*myDiv.clientLeft){
+					clearInterval(timer);
+				}else{
+					myDiv.style.left=myDiv.offsetLeft+speed+"px";
+				}
+				//这个毫秒数越小越圆滑，最小值为1
+			},10);
+			console.log(myDiv.clientLeft)
+			
+			//offsetLeft / offsetTop:获取根据定位基准的left和top位置
+			//clientLeft / clientTop:获取边框的宽度
+		</script>
+	</body>
+</html>

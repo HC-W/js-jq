@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>偷小说</title>
+	</head>
+	<body>
+		<textarea class="t1" rows="30" cols="30"></textarea>
+		<input type="button" class="btn" value="转化" />
+		<textarea class="t2" rows="30" cols="30"></textarea>
+		
+		<script type="text/javascript">
+			var t1=document.querySelector(".t1");
+			var t2=document.querySelector(".t2");
+			var btn=document.querySelector(".btn");
+			//匹配尖括号中间没有尖括号的字符串
+			var re=/<[^<>]+>/g;
+			btn.onclick=function(){
+				var str=t1.value;
+				//把匹配到的字符串替换掉
+				var str2=str.replace(re,"\n");
+				t2.value=str2;
+			}
+		</script>
+	</body>
+</html>

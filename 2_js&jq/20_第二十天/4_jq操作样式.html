@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jQ操作样式</title>
+	</head>
+	<body>
+		<div class="div1">div1<div>
+			
+		</div></div>
+		<script src="../js/jq/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			//css()设置样式
+			//设置一种
+			//设置一种样式，参数1样式，参数2值
+//			$(".div1").css("width","100px");
+//			$(".div1").css("height","100px");
+//			$(".div1").css("background-color","#ccc");
+//			$(".div1").css("color","#C9E2B3");
+			//(2) 设置多种样式：参数是需要设置样式的集合
+			$(".div").css("width":"200px",
+							"height":"200px",
+							"background-color":"green").html("hahaha").val("div1");
+			
+		</script>
+	</body>
+</html>

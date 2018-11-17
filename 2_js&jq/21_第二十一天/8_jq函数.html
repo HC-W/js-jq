@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>jq函数</title>
+		<style type="text/css">
+			.div1{
+				background-color: red;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="div1">hahaha</div>
+		
+		
+		<script src="../js/jq/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				//声明静态函数
+				$.extend({
+					rand:function(min,max){
+						return Math.floor(Math.random()*(max+1-min)+min);
+					},
+					getMax:function(num1,num2){
+						return num1>num2?num1:num2;
+					}
+				});
+
+				//调用
+				console.log($.rand(0,3));
+				
+				//声明jq对象函数
+				$.fn.extend({
+					changeWH:function(w,h,duration){
+						$(this).animate({
+							width:w,
+							height:h,
+						},duration)
+					}
+				});
+				//调用
+				$(".div1").changeWH(300,200,500);
+			})
+		</script>
+	</body>
+</html>
